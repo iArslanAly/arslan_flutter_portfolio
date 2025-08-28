@@ -8,9 +8,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DesktopAppBar(
-        title: Text("Ali.", style: Theme.of(context).textTheme.displayLarge),
-      ),
+      appBar: DesktopAppBar(onCTAPressed: () {}, onNavTogglePressed: () {}),
       body: AppHero(),
     );
   }

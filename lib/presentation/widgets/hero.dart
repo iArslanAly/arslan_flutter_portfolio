@@ -2,6 +2,7 @@ import 'package:arslan_flutter_portfolio/core/constants/colors.dart';
 import 'package:arslan_flutter_portfolio/core/constants/images.dart';
 import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
 import 'package:arslan_flutter_portfolio/core/constants/text_strings.dart';
+import 'package:arslan_flutter_portfolio/core/widgets/cta.dart';
 import 'package:arslan_flutter_portfolio/core/widgets/hover_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -88,41 +89,15 @@ class AppHero extends StatelessWidget {
                 SizedBox(height: AppSizes.d50.h),
                 Row(
                   children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: AppSizes.d24.w,
-                          vertical: AppSizes.d16.h,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(AppSizes.d4.r),
-                        ),
-                      ),
-
-                      child: Row(
-                        children: [
-                          Text(
-                            TextStrings.heroButton,
-                            style: Theme.of(context).textTheme.titleLarge!
-                                .copyWith(
-                                  color: Colors.white,
-                                  fontSize: AppSizes.d15.sp,
-                                ),
-                          ),
-                          SizedBox(width: AppSizes.d8.w),
-                          SvgPicture.asset(
-                            AppImages.arrowUpRight,
-                            colorFilter: ColorFilter.mode(
-                              AppColors.onPrimary,
-                              BlendMode.srcIn,
-                            ),
-                            height: AppSizes.d28.h,
-                          ),
-                        ],
-                      ),
+                    /// Let's Talk Button
+                    CTA(
+                      onPressed: () {
+                        // Your button logic (e.g. open contact form)
+                      },
                     ),
                     SizedBox(width: AppSizes.d50.w),
+
+                    /// Download CV Button
                     HoverableWidget(
                       onTap: () {
                         // Your button logic (e.g. download CV)
@@ -134,7 +109,6 @@ class AppHero extends StatelessWidget {
                             horizontal: 16,
                             vertical: 12,
                           ),
-
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -171,6 +145,7 @@ class AppHero extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
 
                   children: [
+                    /// Bottom Line
                     Text(
                       TextStrings.heroBottomLine,
                       style: Theme.of(context).textTheme.headlineLarge
@@ -188,6 +163,8 @@ class AppHero extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: AppSizes.d32.w),
+
+                    /// Vertical Divider
                     Container(
                       height: AppSizes.d32.h, // thickness
                       width: AppSizes.d1.w, // or whatever length you want
@@ -195,6 +172,8 @@ class AppHero extends StatelessWidget {
                       color: AppColors.textPrimary,
                     ),
                     SizedBox(width: AppSizes.d32.w),
+
+                    /// Social Icons
                     Row(
                       children: [
                         HoverIconButton(
@@ -234,6 +213,8 @@ class AppHero extends StatelessWidget {
                 ),
               ],
             ),
+
+            /// Hero Image
             Image.asset(
               AppImages.heroDesktop,
               width: MediaQuery.of(context).size.width >= 1440

@@ -1,11 +1,13 @@
 import 'package:arslan_flutter_portfolio/core/constants/colors.dart';
-import 'package:arslan_flutter_portfolio/core/themes/themes/app_color_scheme.dart';
-import 'package:arslan_flutter_portfolio/core/themes/themes/elevated_button_theme.dart';
-import 'package:arslan_flutter_portfolio/core/themes/themes/icon_button_theme.dart';
-import 'package:arslan_flutter_portfolio/core/themes/themes/text_button_theme.dart';
-import 'package:arslan_flutter_portfolio/core/themes/themes/text_theme.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'customThemes/app_color_scheme.dart';
+import 'customThemes/elevated_button_theme.dart';
+import 'customThemes/icon_button_theme.dart';
+import 'customThemes/text_button_theme.dart';
+import 'customThemes/text_theme.dart';
 
 class AppTheme {
   AppTheme._();
