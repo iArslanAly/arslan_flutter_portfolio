@@ -1,38 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
+  <!-- Base path for Flutter web app -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="arslan_flutter_portfolio">
+  <!-- Responsive Design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO -->
+  <title>Arslan Ali | Flutter Developer Portfolio</title>
+  <meta name="description" content="Explore Arslan Ali's Flutter portfolio featuring mobile apps, responsive UI/UX designs, and software development projects.">
+  <meta name="keywords" content="Flutter Developer, Mobile Developer, Arslan Ali, Portfolio, UI/UX, Dart, Frontend, Web Developer">
+  <meta name="author" content="Arslan Ali">
+  <meta name="robots" content="index, follow">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://iarslanaly.dev/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Arslan Ali | Flutter Developer Portfolio">
+  <meta property="og:description" content="Professional portfolio of Arslan Ali, showcasing Flutter mobile applications and UI/UX case studies.">
+  <meta property="og:url" content="https://iarslanaly.dev/">
+  <meta property="og:image" content="https://iarslanaly.dev/preview-image.png">
+  <meta property="og:site_name" content="Arslan Ali Portfolio">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arslan Ali | Flutter Developer Portfolio">
+  <meta name="twitter:description" content="Explore Arslan Ali’s Flutter portfolio highlighting mobile apps, UI/UX design, and software development expertise.">
+  <meta name="twitter:image" content="https://iarslanaly.dev/preview-image.png">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>arslan_flutter_portfolio</title>
   <link rel="manifest" href="manifest.json">
+
+  <!-- Theme & PWA Colors -->
+  <meta name="theme-color" content="#0D47A1">
+  <meta name="msapplication-navbutton-color" content="#0D47A1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Preload Outfit font stylesheet -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" as="style" />
+
+  <!-- Load Outfit font stylesheet -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet" />
+
+
+  <!-- External Styles -->
+  <link rel="stylesheet" href="loader.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "name": "Arslan Ali",
+          "url": "https://iarslanaly.dev",
+          "image": "https://iarslanaly.dev/preview-image.png",
+          "sameAs": [
+            "https://linkedin.com/in/iarslanaly",
+            "https://github.com/iarslanaly",
+            "https://twitter.com/iarslanaly"
+          ],
+          "jobTitle": "Flutter Developer",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance / Open Source"
+          },
+          "description": "Arslan Ali is a Flutter developer focused on building scalable mobile applications and UI/UX optimized interfaces using Flutter and Dart.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Remote",
+            "addressCountry": "PK"
+          }
+        },
+        {
+          "@type": "Blog",
+          "name": "Arslan Ali’s Flutter Blog",
+          "url": "https://iarslanaly.dev/blog",
+          "description": "A blog featuring articles and tutorials on Flutter development and UI/UX design.",
+          "blogPosts": [
+            {
+              "@type": "BlogPosting",
+              "headline": "Building Responsive UI in Flutter",
+              "url": "https://iarslanaly.dev/blog/responsive-ui-flutter",
+              "author": {
+                "@type": "Person",
+                "name": "Arslan Ali"
+              },
+              "datePublished": "2025-07-15",
+              "image": "https://iarslanaly.dev/blog/images/responsive-ui.png",
+              "description": "Learn how to build responsive user interfaces with Flutter that adapt to any screen size."
+            },
+            {
+              "@type": "BlogPosting",
+              "headline": "State Management in Flutter",
+              "url": "https://iarslanaly.dev/blog/state-management-flutter",
+              "author": {
+                "@type": "Person",
+                "name": "Arslan Ali"
+              },
+              "datePublished": "2025-06-10",
+              "image": "https://iarslanaly.dev/blog/images/state-management.png",
+              "description": "An overview of popular state management approaches in Flutter, with examples."
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+
 </head>
+
 <body>
-  <script src="flutter_bootstrap.js" async></script>
+<!-- Custom Loader -->
+<div id="loader" aria-busy="true" aria-label="Loading portfolio">
+  <div class="spinner">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+
+<!-- Flutter Web App Bootstrap -->
+<script src="flutter_bootstrap.js" async></script>
+<script>
+  window.addEventListener('flutter-first-frame', () => {
+    const loader = document.getElementById('loader');
+    if (loader) loader.style.display = 'none';
+  });
+</script>
 </body>
 </html>
