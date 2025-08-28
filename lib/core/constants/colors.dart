@@ -10,6 +10,7 @@ class AppColors {
 
   /// Main color used for buttons, hover states, links, etc.
   static const Color primary = Color(0xFF2E8B57); // Sea Green
+  static const Color Secondary = Color(0xFF252422); // Light Sea Green
 
   /// Text or icons on top of the primary color (e.g. white on green button)
   static const Color onPrimary = Color(0xFFE0EBDB); // Off-white

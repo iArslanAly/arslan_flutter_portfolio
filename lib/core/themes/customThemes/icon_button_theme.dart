@@ -14,7 +14,7 @@ class AppIconButtonTheme {
             foregroundColor: AppColors.onSurface,
             padding: EdgeInsets.all(AppSizes.d16),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(AppSizes.d4.r),
+              borderRadius: BorderRadius.circular(AppSizes.d4),
             ),
             iconSize: AppSizes.d24,
           ).copyWith(
