@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:arslan_flutter_portfolio/core/constants/colors.dart';
 import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppIconButtonTheme {
   AppIconButtonTheme._();
@@ -10,8 +9,8 @@ class AppIconButtonTheme {
     return IconButtonThemeData(
       style:
           IconButton.styleFrom(
-            backgroundColor: AppColors.surface,
-            foregroundColor: AppColors.onSurface,
+            backgroundColor: AppColors.onSurface,
+            foregroundColor: AppColors.surface,
             padding: EdgeInsets.all(AppSizes.d16),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppSizes.d4),
@@ -20,13 +19,13 @@ class AppIconButtonTheme {
           ).copyWith(
             backgroundColor: WidgetStateProperty.resolveWith((states) {
               if (states.contains(WidgetState.hovered)) {
-                return AppColors.surface;
+                return AppColors.primary;
               }
-              return AppColors.primary;
+              return AppColors.onSurface;
             }),
             foregroundColor: WidgetStateProperty.resolveWith((states) {
               if (states.contains(WidgetState.hovered)) {
-                return AppColors.onSurface;
+                return AppColors.surface;
               }
               return AppColors.onPrimary;
             }),

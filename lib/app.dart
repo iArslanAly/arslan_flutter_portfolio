@@ -1,7 +1,8 @@
-import 'package:arslan_flutter_portfolio/presentation/home.dart';
+import 'package:arslan_flutter_portfolio/presentation/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'core/routes/app_routes.dart';
 import 'core/themes/themes.dart';
 
 class MyApp extends StatelessWidget {
@@ -25,11 +26,11 @@ class MyApp extends StatelessWidget {
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (context, child) {
-            return MaterialApp(
+            return MaterialApp.router(
               debugShowCheckedModeBanner: false,
               title: 'Arslan Ali',
               theme: theme,
-              home: child,
+              routerConfig: appRouter,
             );
           },
           child: const Home(), // ✅ Put your widget tree here

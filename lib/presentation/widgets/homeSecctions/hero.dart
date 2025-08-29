@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../core/widgets/hoverable_widget.dart';
+import '../../../core/widgets/hoverable_widget.dart';
 
 class AppHero extends StatelessWidget {
   const AppHero({super.key});

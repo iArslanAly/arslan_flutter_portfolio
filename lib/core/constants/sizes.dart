@@ -283,6 +283,9 @@ class AppSizes {
   static double d353 = 353.0;
   static double d360 = 360.0;
   static double d400 = 400.0;
+  static double d410 = 410.0;
+  static double d415 = 415.0;
+  static double d420 = 420.0;
   static double d440 = 440.0;
   static double d450 = 450.0;
   static double d460 = 460.0;
@@ -292,5 +295,11 @@ class AppSizes {
   static double d500 = 500.0;
   static double d570 = 570.0;
   static double d600 = 600.0;
+  static double d620 = 620.0;
+
+  static double d630 = 630.0;
+  static double d635 = 635.0;
+  static double d640 = 640.0;
+  static double d650 = 650.0;
   static double d900 = 900.0;
 }

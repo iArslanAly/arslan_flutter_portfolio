@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../constants/colors.dart';
 import '../constants/sizes.dart';
 
+import '../routes/route_names.dart';
 import 'cta.dart';
 import 'hoverable_widget.dart';
 
@@ -12,10 +14,10 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onNavTogglePressed;
 
   const DesktopAppBar({
-    Key? key,
+    super.key,
     required this.onCTAPressed,
     required this.onNavTogglePressed,
-  }) : super(key: key);
+  });
 
   @override
   Size get preferredSize => Size.fromHeight(70.h);
@@ -48,12 +50,42 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _navItem(context, 'HOME', onTap: () {}),
-              _navItem(context, 'SERVICES', onTap: () {}),
-              _navItem(context, 'CONTACT', onTap: () {}),
-              _navItem(context, 'ABOUT', onTap: () {}),
-              _navItem(context, 'PORTFOLIO', onTap: () {}),
-              _navItem(context, 'BLOGS', onTap: () {}),
+              _navItem(
+                context,
+                'HOME',
+                route: RouteNames.home,
+                onTap: () => context.go(RouteNames.home),
+              ),
+              _navItem(
+                context,
+                'SERVICES',
+                route: RouteNames.services,
+                onTap: () => context.go(RouteNames.services),
+              ),
+              _navItem(
+                context,
+                'CONTACT',
+                route: RouteNames.contact,
+                onTap: () => context.go(RouteNames.contact),
+              ),
+              _navItem(
+                context,
+                'ABOUT',
+                route: RouteNames.about,
+                onTap: () => context.go(RouteNames.about),
+              ),
+              _navItem(
+                context,
+                'PORTFOLIO',
+                route: RouteNames.portfolio,
+                onTap: () => context.go(RouteNames.portfolio),
+              ),
+              _navItem(
+                context,
+                'BLOGS',
+                route: RouteNames.blogs,
+                onTap: () => context.go(RouteNames.blogs),
+              ),
             ],
           ),
 
@@ -74,8 +106,10 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
                     horizontal: AppSizes.d24.w,
                     vertical: AppSizes.d16.h,
                   ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(AppSizes.d4.r),
+                  ),
                 ),
-                color: AppColors.surface,
                 onPressed: onNavTogglePressed,
               ),
             ],
@@ -88,8 +122,15 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget _navItem(
     BuildContext context,
     String label, {
+    required String route,
     required VoidCallback onTap,
   }) {
+    final currentLocation = GoRouter.of(
+      context,
+    ).routerDelegate.currentConfiguration.uri.toString();
+
+    final bool isSelected = currentLocation == route;
+
     return HoverableWidget(
       onTap: onTap,
       builder: (isHovered) {
@@ -99,7 +140,10 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: Text(
             label,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
-              color: isHovered ? AppColors.textAccent : AppColors.textPrimary,
+              color: isSelected
+                  ? AppColors.primary
+                  : (isHovered ? AppColors.textAccent : AppColors.textPrimary),
+              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
               fontSize: AppSizes.d15.sp,
             ),
           ),

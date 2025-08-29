@@ -6,7 +6,7 @@ import 'package:arslan_flutter_portfolio/presentation/widgets/service_cards.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../core/constants/text_strings.dart';
+import '../../../core/constants/text_strings.dart';
 
 class ServiceSection extends StatelessWidget {
   ServiceSection({super.key});
