@@ -1,6 +1,7 @@
 import 'package:arslan_flutter_portfolio/core/constants/colors.dart';
 import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HoverIconButton extends StatefulWidget {
@@ -16,7 +17,7 @@ class HoverIconButton extends StatefulWidget {
   });
 
   @override
-  _HoverIconButtonState createState() => _HoverIconButtonState();
+  State<HoverIconButton> createState() => _HoverIconButtonState();
 }
 
 class _HoverIconButtonState extends State<HoverIconButton> {
@@ -33,9 +34,7 @@ class _HoverIconButtonState extends State<HoverIconButton> {
         onTap: widget.onTap,
         child: AnimatedContainer(
           duration: Duration(milliseconds: 200),
-          padding: EdgeInsets.all(
-            widget.size * 0.25,
-          ), // padding inside round bg
+          padding: EdgeInsets.all(AppSizes.d12.w), // padding inside round bg
           decoration: BoxDecoration(
             color: _isHovered ? AppColors.onSurface : Colors.transparent,
             shape: BoxShape.circle,
@@ -44,12 +43,16 @@ class _HoverIconButtonState extends State<HoverIconButton> {
               width: 2,
             ),
           ),
-          child: Padding(
-            padding: EdgeInsets.all(AppSizes.d34),
+          child: SizedBox(
+            width: 18.w,
+            height: 18.w,
             child: SvgPicture.asset(
               widget.assetPath,
               width: widget.size,
-              color: _isHovered ? tabHoverText : AppColors.onBackground,
+              colorFilter: ColorFilter.mode(
+                _isHovered ? tabHoverText : AppColors.onBackground,
+                BlendMode.srcIn,
+              ),
             ),
           ),
         ),

@@ -5,6 +5,13 @@ class AppImages {
   static const String heroBackgroundDesktop =
       'assets/images/hero_section_background.png';
   static const String profilePicture = 'assets/images/profile_picture.png';
+  static const String resumeBg = 'assets/images/resume_bg.png';
+
+  /// ----------------------- Work Images -----------------------
+  static const String work1 = 'assets/images/portfolio1.png';
+  static const String work2 = 'assets/images/portfolio2.png';
+  static const String work3 = 'assets/images/portfolio3.png';
+  static const String work4 = 'assets/images/portfolio4.png';
 
   /// ----------------------- Social Icons -----------------------
   static const String github = 'assets/icons/github.svg';
@@ -31,6 +38,10 @@ class AppImages {
   static const String postgres = 'assets/icons/postgres.svg';
   static const String restAPI = 'assets/icons/rest_api.svg';
   static const String supabase = 'assets/icons/supabase.svg';
+  static const String figma = 'assets/icons/figma.svg';
+  static const String cicd = 'assets/icons/cicd.svg';
+  static const String testing = 'assets/icons/testing.svg';
+  static const String bloc = 'assets/icons/bloc.svg';
 
   /// ----------------------- Other Icons -----------------------
   static const String arrowUpRight = 'assets/icons/arrow_up_right.svg';

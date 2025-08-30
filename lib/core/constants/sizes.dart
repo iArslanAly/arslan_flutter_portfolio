@@ -282,6 +282,7 @@ class AppSizes {
   static double d350 = 350.0;
   static double d353 = 353.0;
   static double d360 = 360.0;
+  static double d370 = 370.0;
   static double d400 = 400.0;
   static double d410 = 410.0;
   static double d415 = 415.0;

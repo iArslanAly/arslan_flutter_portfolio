@@ -39,7 +39,7 @@ class AppElevatedButtonTheme {
       textStyle: WidgetStateProperty.all(
         TextStyle(fontSize: AppSizes.d16, fontWeight: FontWeight.w600),
       ),
-      side: MaterialStateProperty.all(BorderSide.none),
+      side: WidgetStateProperty.all(BorderSide.none),
     ),
   );
 

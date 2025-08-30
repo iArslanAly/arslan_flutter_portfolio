@@ -9,29 +9,38 @@ import '../constants/images.dart';
 
 class CTA extends StatelessWidget {
   final VoidCallback onPressed;
+  final String label;
+  final bool isSelected;
 
-  const CTA({super.key, required this.onPressed});
+  const CTA({
+    super.key,
+    this.label = TextStrings.heroButton,
+    required this.onPressed,
+    this.isSelected = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.symmetric(
           horizontal: AppSizes.d24.w,
           vertical: AppSizes.d16.h,
         ),
+        backgroundColor: isSelected ? AppColors.onSurface : null,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSizes.d4.r),
         ),
       ),
 
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            TextStrings.heroButton,
+            label,
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
-              color: Colors.white,
+              color: AppColors.surface,
               fontSize: AppSizes.d15.sp,
             ),
           ),
@@ -39,7 +48,7 @@ class CTA extends StatelessWidget {
           SvgPicture.asset(
             AppImages.arrowUpRight,
             colorFilter: ColorFilter.mode(AppColors.onPrimary, BlendMode.srcIn),
-            height: AppSizes.d28.h,
+            height: AppSizes.d24.h,
           ),
         ],
       ),

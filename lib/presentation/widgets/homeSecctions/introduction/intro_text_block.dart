@@ -32,29 +32,6 @@ class IntroTextBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bottomItems = List.generate(3, (_) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            TextStrings.heroBottomLine,
-            style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-              fontSize: bottomFontSize,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: AppSizes.d8.h),
-          Text(
-            TextStrings.heroBottomLineSubtitle,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              fontSize: AppSizes.d18.sp,
-              color: AppColors.textSecondary,
-            ),
-          ),
-        ],
-      );
-    });
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

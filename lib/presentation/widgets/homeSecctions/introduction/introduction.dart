@@ -24,7 +24,11 @@ class IntroductionSection extends StatelessWidget {
           SizedBox(
             width: AppSizes.d635.w,
             height: AppSizes.d635.h,
-            child: Image.asset(AppImages.profilePicture, fit: BoxFit.contain),
+            child: Image.asset(
+              AppImages.profilePicture,
+              fit: BoxFit.contain,
+              filterQuality: FilterQuality.low,
+            ),
           ),
           SizedBox(width: AppSizes.d32.w),
           Expanded(
