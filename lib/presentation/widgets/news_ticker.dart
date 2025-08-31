@@ -51,7 +51,7 @@ class _NewsTickerBannerState extends State<NewsTickerBanner>
   Duration? _lastElapsed;
 
   void _onTick(Duration elapsed) {
-    if (!_scrollController.hasClients) return;
+    if (!mounted || !_scrollController.hasClients) return;
 
     if (_lastElapsed == null) {
       _lastElapsed = elapsed;
@@ -59,16 +59,18 @@ class _NewsTickerBannerState extends State<NewsTickerBanner>
     }
 
     final delta = elapsed - _lastElapsed!;
-    final deltaSeconds = delta.inMicroseconds / 1e6;
     _lastElapsed = elapsed;
 
+    final deltaSeconds = delta.inMicroseconds / 1e6;
     scrollPosition += speed * deltaSeconds;
 
-    if (_scrollController.hasClients) {
-      if (scrollPosition >= _scrollController.position.maxScrollExtent) {
-        scrollPosition = 0;
+    if (scrollPosition >= _scrollController.position.maxScrollExtent) {
+      scrollPosition = 0;
+      if (mounted && _scrollController.hasClients) {
         _scrollController.jumpTo(0);
-      } else {
+      }
+    } else {
+      if (mounted && _scrollController.hasClients) {
         _scrollController.jumpTo(scrollPosition);
       }
     }
@@ -76,6 +78,9 @@ class _NewsTickerBannerState extends State<NewsTickerBanner>
 
   @override
   void dispose() {
+    if (_ticker.isActive) {
+      _ticker.stop();
+    }
     _ticker.dispose();
     _scrollController.dispose();
     super.dispose();
