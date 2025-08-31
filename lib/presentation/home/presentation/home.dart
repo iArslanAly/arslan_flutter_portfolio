@@ -5,8 +5,8 @@ import 'package:arslan_flutter_portfolio/presentation/widgets/homeSecctions/work
 import 'package:arslan_flutter_portfolio/presentation/widgets/news_ticker.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/homeSecctions/introduction/introduction.dart';
-import '../widgets/homeSecctions/serviceSection/service.dart';
+import '../../widgets/homeSecctions/introduction/introduction.dart';
+import '../../widgets/homeSecctions/serviceSection/service.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

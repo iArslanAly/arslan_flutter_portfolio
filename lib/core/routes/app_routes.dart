@@ -1,7 +1,7 @@
 import 'package:arslan_flutter_portfolio/presentation/about/about.dart';
 import 'package:arslan_flutter_portfolio/presentation/blogs/blogs.dart';
 import 'package:arslan_flutter_portfolio/presentation/contact/contact.dart';
-import 'package:arslan_flutter_portfolio/presentation/home/home.dart';
+import 'package:arslan_flutter_portfolio/presentation/home/presentation/home.dart';
 import 'package:arslan_flutter_portfolio/presentation/notFound/not_found.dart';
 import 'package:arslan_flutter_portfolio/presentation/portfolio/portfolio.dart';
 import 'package:flutter/material.dart';
