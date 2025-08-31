@@ -1,7 +1,7 @@
 import 'package:arslan_flutter_portfolio/core/constants/text_strings.dart';
-import 'package:arslan_flutter_portfolio/presentation/widgets/homeSecctions/resumeSection/experience_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'experience_card.dart';
 
 class Experience extends StatelessWidget {
   const Experience({super.key});

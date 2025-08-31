@@ -1,12 +1,11 @@
 import 'dart:async';
 import 'dart:ui';
-import 'package:arslan_flutter_portfolio/core/constants/colors.dart';
 import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
-import 'package:arslan_flutter_portfolio/presentation/home/domain/project_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arslan_flutter_portfolio/core/constants/images.dart';
 
+import '../../../home/domain/project_modal.dart';
 import 'card.dart';
 
 class WorkSlider extends StatefulWidget {

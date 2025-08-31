@@ -1,12 +1,12 @@
 import 'package:arslan_flutter_portfolio/core/constants/colors.dart';
 import 'package:arslan_flutter_portfolio/core/constants/images.dart';
 import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
-import 'package:arslan_flutter_portfolio/presentation/widgets/homeSecctions/serviceSection/service_card_large.dart';
-import 'package:arslan_flutter_portfolio/presentation/widgets/homeSecctions/serviceSection/service_cards.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constants/text_strings.dart';
+import 'service_card_large.dart';
+import 'service_cards.dart';
 
 class ServiceSection extends StatelessWidget {
   ServiceSection({super.key});

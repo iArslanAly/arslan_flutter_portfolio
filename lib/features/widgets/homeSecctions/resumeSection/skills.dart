@@ -2,7 +2,8 @@ import 'package:arslan_flutter_portfolio/core/constants/skills.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arslan_flutter_portfolio/core/constants/text_strings.dart';
-import 'package:arslan_flutter_portfolio/presentation/widgets/homeSecctions/resumeSection/skill_card.dart';
+
+import 'skill_card.dart';
 
 class Skills extends StatelessWidget {
   const Skills({super.key});

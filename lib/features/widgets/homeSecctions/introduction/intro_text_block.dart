@@ -1,4 +1,4 @@
-// lib/presentation/sections/introduction/widgets/intro_text_block.dart
+// lib/features/sections/introduction/widgets/intro_text_block.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

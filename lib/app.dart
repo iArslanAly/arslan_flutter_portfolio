@@ -1,9 +1,9 @@
-import 'package:arslan_flutter_portfolio/presentation/home/presentation/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/routes/app_routes.dart';
 import 'core/themes/themes.dart';
+import 'features/home/presentation/home.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

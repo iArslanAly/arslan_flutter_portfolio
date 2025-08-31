@@ -1,8 +1,9 @@
 import 'package:arslan_flutter_portfolio/core/constants/text_strings.dart';
-import 'package:arslan_flutter_portfolio/presentation/widgets/homeSecctions/resumeSection/education_card.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'education_card.dart';
 
 class Education extends StatelessWidget {
   const Education({super.key});

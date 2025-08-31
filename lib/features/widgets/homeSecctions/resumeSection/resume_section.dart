@@ -4,13 +4,14 @@ import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
 import 'package:arslan_flutter_portfolio/core/constants/text_strings.dart';
 import 'package:arslan_flutter_portfolio/core/cubits/resume_tab_cubit.dart';
 import 'package:arslan_flutter_portfolio/core/widgets/cta.dart';
-import 'package:arslan_flutter_portfolio/presentation/widgets/homeSecctions/resumeSection/about_me.dart';
-import 'package:arslan_flutter_portfolio/presentation/widgets/homeSecctions/resumeSection/education.dart';
-import 'package:arslan_flutter_portfolio/presentation/widgets/homeSecctions/resumeSection/experience.dart';
-import 'package:arslan_flutter_portfolio/presentation/widgets/homeSecctions/resumeSection/skills.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'about_me.dart';
+import 'education.dart';
+import 'experience.dart';
+import 'skills.dart';
 
 class ResumeSection extends StatelessWidget {
   const ResumeSection({super.key});

@@ -1,12 +1,12 @@
-import 'package:arslan_flutter_portfolio/core/widgets/desktop_appbar.dart';
-import 'package:arslan_flutter_portfolio/presentation/widgets/homeSecctions/hero/hero.dart';
-import 'package:arslan_flutter_portfolio/presentation/widgets/homeSecctions/resumeSection/resume_section.dart';
-import 'package:arslan_flutter_portfolio/presentation/widgets/homeSecctions/work/work.dart';
-import 'package:arslan_flutter_portfolio/presentation/widgets/news_ticker.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/widgets/desktop_appbar.dart';
+import '../../widgets/homeSecctions/hero/hero.dart';
 import '../../widgets/homeSecctions/introduction/introduction.dart';
+import '../../widgets/homeSecctions/resumeSection/resume_section.dart';
 import '../../widgets/homeSecctions/serviceSection/service.dart';
+import '../../widgets/homeSecctions/work/work.dart';
+import '../../widgets/news_ticker.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
