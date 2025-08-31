@@ -32,7 +32,7 @@ class AnimatedProjectCard extends StatelessWidget {
           offset: isVisible ? Offset.zero : const Offset(0, 0.1),
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeOut,
-          child: GestureDetector(
+          child: InkWell(
             onTap: isVisible ? onTap : null,
             child: Material(
               elevation: isVisible ? 6 : 0,

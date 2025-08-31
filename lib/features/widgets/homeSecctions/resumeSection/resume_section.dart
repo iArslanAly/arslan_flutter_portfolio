@@ -42,6 +42,8 @@ class ResumeSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 80.0.h, horizontal: 80.0.w),
+      height: 850.h,
+      width: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(AppImages.resumeBg),

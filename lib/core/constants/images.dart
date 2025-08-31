@@ -6,12 +6,19 @@ class AppImages {
       'assets/images/hero_section_background.png';
   static const String profilePicture = 'assets/images/profile_picture.png';
   static const String resumeBg = 'assets/images/resume_bg.png';
+  static const String client = 'assets/images/client.png';
 
   /// ----------------------- Work Images -----------------------
   static const String work1 = 'assets/images/portfolio1.png';
   static const String work2 = 'assets/images/portfolio2.png';
   static const String work3 = 'assets/images/portfolio3.png';
   static const String work4 = 'assets/images/portfolio4.png';
+
+  /// --------------------Blog Images --------------------------
+
+  static const String blog1 = 'assets/images/blog1.png';
+  static const String blog2 = 'assets/images/blog2.png';
+  static const String blog3 = 'assets/images/blog3.png';
 
   /// ----------------------- Social Icons -----------------------
   static const String github = 'assets/icons/github.svg';
@@ -47,4 +54,5 @@ class AppImages {
   static const String arrowUpRight = 'assets/icons/arrow_up_right.svg';
   static const String download = 'assets/icons/download.svg';
   static const String line = 'assets/icons/line.svg';
+  static const String quote = 'assets/icons/quote.svg';
 }

@@ -31,7 +31,9 @@ class ServiceSection extends StatelessWidget {
         vertical: AppSizes.d90.h,
         horizontal: AppSizes.d80.w,
       ),
-      decoration: BoxDecoration(color: AppColors.background),
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 245, 247, 246),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

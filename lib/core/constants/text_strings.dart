@@ -85,4 +85,14 @@ class TextStrings {
   static const String workSubtitle =
       "Projects that reflect my journey in creating secure, scalable, and user-friendly cross-platform apps with intuitive design.";
   static const String workButton = "View More";
+
+  /// -------------- Testimonial Section --------------
+  static const String testimonialLabel = "Testimonial";
+  static const String testimonialTitle = "Client Feedback\nAbout Me";
+
+  /// ------------ Blog Title -----------------
+  static const String blogLabel = "Blog";
+  static const String blogTitle = "Latest Blogs ";
+  static const String and = '& ';
+  static const String blogTitleArticles = "Articles";
 }

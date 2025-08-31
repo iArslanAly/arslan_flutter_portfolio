@@ -15,12 +15,15 @@ class _HoverableWidgetState extends State<HoverableWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final hasTap = widget.onTap != null;
+
     return MouseRegion(
       onEnter: (_) => setState(() => isHovered = true),
       onExit: (_) => setState(() => isHovered = false),
-      cursor: SystemMouseCursors.click,
+      cursor: hasTap ? SystemMouseCursors.click : SystemMouseCursors.basic,
       child: GestureDetector(
-        onTap: widget.onTap,
+        behavior: HitTestBehavior.opaque,
+        onTap: widget.onTap, // only works if provided
         child: widget.builder(isHovered),
       ),
     );

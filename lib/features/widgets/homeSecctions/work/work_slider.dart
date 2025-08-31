@@ -1,10 +1,11 @@
 import 'dart:async';
 import 'dart:ui';
-import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arslan_flutter_portfolio/core/constants/images.dart';
 
+import '../../../../core/constants/colors.dart';
+import '../../../../core/widgets/round_icon_button.dart';
 import '../../../home/domain/project_modal.dart';
 import 'card.dart';
 
@@ -44,7 +45,7 @@ class _WorkSliderRowState extends State<WorkSlider> {
   final double horizontalSpacing = 16.w;
 
   // runtime values (updated in build)
-  double _screenCenter = 0.0;
+  double _screenCenter = 0;
   double _sidePadding = 0.0;
   double _slotWidth = 0.0;
   double _influenceRadius = 0.0;
@@ -52,6 +53,9 @@ class _WorkSliderRowState extends State<WorkSlider> {
   // state
   double _currentScroll = 0.0;
   int currentIndex = 0; // which item is considered "centered"
+
+  // track which item is hovered (web/desktop)
+  int? _hoveredIndex;
 
   // throttle to avoid excessive setState calls
   Timer? _throttleTimer;
@@ -125,7 +129,7 @@ class _WorkSliderRowState extends State<WorkSlider> {
 
   @override
   Widget build(BuildContext context) {
-    _screenCenter = MediaQuery.of(context).size.width / 2;
+    _screenCenter = (MediaQuery.of(context).size.width / 2) - 150.w;
     _slotWidth = itemBaseWidth + horizontalSpacing;
     _sidePadding = _screenCenter - (itemBaseWidth / 2);
     _influenceRadius = _slotWidth; // how far the scaling effect reaches
@@ -160,63 +164,87 @@ class _WorkSliderRowState extends State<WorkSlider> {
                 // consider the item centered when it is the computed currentIndex
                 final bool isCentered = index == currentIndex;
 
+                // hover grow (web/desktop)
+                final bool isHovered = index == _hoveredIndex;
+                final double hoverScale = isHovered ? 1.01 : 1.0;
+
                 return SizedBox(
                   width: innerWidth + horizontalSpacing,
                   child: Center(
-                    child: GestureDetector(
-                      onTap: () => _scrollToIndex(index),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          AnimatedContainer(
-                            duration: const Duration(milliseconds: 220),
-                            curve: Curves.easeOut,
-                            width: innerWidth,
-                            height: itemHeight,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(4.r),
-                              child: Stack(
-                                fit: StackFit.expand,
-                                children: [
-                                  Image.asset(
-                                    project.imagePath,
-                                    fit: BoxFit.cover,
-                                    semanticLabel: project.title,
-                                  ),
-
-                                  // subtle shadow overlay to mimic boxShadow while avoiding expensive decorations
-                                  Positioned.fill(
-                                    child: DecoratedBox(
-                                      decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                          begin: Alignment.topCenter,
-                                          end: Alignment.bottomCenter,
-                                          colors: [
-                                            Colors.transparent,
-                                            Colors.black26,
-                                          ],
+                    child: MouseRegion(
+                      onEnter: (_) => setState(() => _hoveredIndex = index),
+                      onExit: (_) => setState(() => _hoveredIndex = null),
+                      child: AnimatedScale(
+                        scale: hoverScale,
+                        duration: const Duration(milliseconds: 150),
+                        curve: Curves.easeOut,
+                        child: GestureDetector(
+                          onTap: () => _scrollToIndex(index),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              AnimatedContainer(
+                                duration: const Duration(milliseconds: 220),
+                                curve: Curves.easeOut,
+                                width: innerWidth,
+                                height: itemHeight,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(4.r),
+                                  child: Stack(
+                                    fit: StackFit.expand,
+                                    children: [
+                                      ColorFiltered(
+                                        colorFilter: isCentered
+                                            ? const ColorFilter.mode(
+                                                AppColors.surface,
+                                                BlendMode
+                                                    .modulate, // multiplies image with green
+                                              )
+                                            : const ColorFilter.mode(
+                                                Colors.transparent,
+                                                BlendMode.multiply,
+                                              ),
+                                        child: Image.asset(
+                                          project.imagePath,
+                                          fit: BoxFit.cover,
+                                          semanticLabel: project.title,
                                         ),
                                       ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
 
-                          // Card overlay shown only when the item is centered.
-                          // Uses AnimatedOpacity + Slide for a smooth entrance.
-                          // Card overlay shown only when the item is centered.
-                          AnimatedProjectCard(
-                            title: project.title,
-                            tech: project.tech,
-                            isVisible: isCentered,
-                            onTap: () {
-                              project.onTap?.call();
-                              widget.onProjectTap?.call(project);
-                            },
+                                      // subtle shadow overlay to mimic boxShadow while avoiding expensive decorations
+                                      Positioned.fill(
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            gradient: LinearGradient(
+                                              begin: Alignment.topCenter,
+                                              end: Alignment.bottomCenter,
+                                              colors: [
+                                                Colors.transparent,
+                                                Colors.black26,
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+
+                              // Card overlay shown only when the item is centered.
+                              // Uses AnimatedOpacity + Slide for a smooth entrance.
+                              AnimatedProjectCard(
+                                title: project.title,
+                                tech: project.tech,
+                                isVisible: isCentered,
+                                onTap: () {
+                                  project.onTap?.call();
+                                  widget.onProjectTap?.call(project);
+                                },
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ),
@@ -232,18 +260,19 @@ class _WorkSliderRowState extends State<WorkSlider> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              IconButton(
+              RoundIconButton(
                 onPressed: currentIndex > 0
                     ? () => _scrollToIndex(currentIndex - 1)
                     : null,
-                icon: Icon(Icons.arrow_back, size: AppSizes.d32.h),
+                icon: Icons.arrow_back,
               ),
               SizedBox(width: 24.w),
-              IconButton(
+              RoundIconButton(
                 onPressed: currentIndex < projects.length - 1
                     ? () => _scrollToIndex(currentIndex + 1)
                     : null,
-                icon: Icon(Icons.arrow_forward, size: AppSizes.d32.h),
+
+                icon: Icons.arrow_forward,
               ),
             ],
           ),

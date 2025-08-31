@@ -16,7 +16,7 @@ class WorkSection extends StatelessWidget {
         children: [
           WorkTitle(),
           WorkSlider(),
-          SizedBox(height: 80.h),
+          SizedBox(height: 40.h),
         ],
       ),
     );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/images.dart';
 import '../../../../core/constants/sizes.dart';
 import 'intro_text_block.dart';
@@ -17,7 +16,7 @@ class IntroductionSection extends StatelessWidget {
         vertical: AppSizes.d90.h,
         horizontal: AppSizes.d80.w,
       ),
-      color: AppColors.background,
+      color: const Color.fromARGB(255, 253, 253, 253),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -1,4 +1,4 @@
-import 'package:arslan_flutter_portfolio/core/constants/skills.dart';
+import 'package:arslan_flutter_portfolio/core/constants/raw_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arslan_flutter_portfolio/core/constants/text_strings.dart';

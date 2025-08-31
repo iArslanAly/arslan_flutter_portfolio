@@ -53,7 +53,7 @@ class WorkTitle extends StatelessWidget {
                     height: 1.5,
                   ),
                 ),
-                SizedBox(height: AppSizes.d44.h),
+                SizedBox(height: AppSizes.d20.h),
               ],
             ),
           ),
