@@ -1,5 +1,3 @@
-// lib/features/sections/introduction/widgets/intro_text_block.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,18 +35,20 @@ class IntroTextBlock extends StatelessWidget {
       children: [
         Text(
           TextStrings.introductionLabel,
-          style: Theme.of(
-            context,
-          ).textTheme.titleMedium?.copyWith(fontSize: subtitleFontSize),
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+            fontSize: subtitleFontSize,
+            color: AppColors.primary,
+            fontWeight: context.isDesktop ? FontWeight.w500 : FontWeight.w400,
+          ),
         ),
-        SizedBox(height: AppSizes.d8.h),
+        SizedBox(height: context.isDesktop ? AppSizes.d8.h : AppSizes.d4.h),
         Text(
           TextStrings.heroTitle2,
           style: Theme.of(
             context,
           ).textTheme.displayLarge?.copyWith(fontSize: titleFontSize),
         ),
-        SizedBox(height: AppSizes.d16.h),
+        SizedBox(height: context.isDesktop ? AppSizes.d16.h : AppSizes.d4.h),
         RichText(
           text: TextSpan(
             text: TextStrings.heroTitle3,
@@ -67,7 +67,7 @@ class IntroTextBlock extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: AppSizes.d35.h),
+        SizedBox(height: context.isDesktop ? AppSizes.d35.h : AppSizes.d16.h),
         SizedBox(
           width: AppSizes.d570.w,
           child: Text(
@@ -78,13 +78,15 @@ class IntroTextBlock extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: AppSizes.d50.h),
+        SizedBox(height: context.isDesktop ? AppSizes.d50.h : AppSizes.d24.h),
 
         /// CTA Buttons
         Row(
           children: [
             CTA(onPressed: () {}),
-            SizedBox(width: AppSizes.d50.w),
+            SizedBox(
+              width: context.isDesktop ? AppSizes.d50.w : AppSizes.d16.w,
+            ),
             HoverableWidget(
               onTap: () {},
               builder: (isHovered) => AnimatedContainer(
@@ -101,10 +103,14 @@ class IntroTextBlock extends StatelessWidget {
                         color: isHovered
                             ? AppColors.textAccent
                             : AppColors.textPrimary,
-                        fontSize: AppSizes.d15.sp,
+                        fontSize: context.isDesktop
+                            ? AppSizes.d15.sp
+                            : AppSizes.d12.sp,
                       ),
                     ),
-                    SizedBox(width: AppSizes.d8.w),
+                    SizedBox(
+                      width: context.isDesktop ? AppSizes.d8.w : AppSizes.d4.w,
+                    ),
                     SvgPicture.asset(
                       AppImages.download,
                       height: AppSizes.d28.h,
@@ -128,7 +134,9 @@ class IntroTextBlock extends StatelessWidget {
         Row(
           children: bottomItemsData.map((item) {
             return Padding(
-              padding: EdgeInsets.only(right: AppSizes.d40.w),
+              padding: EdgeInsets.only(
+                right: context.isDesktop ? AppSizes.d40.w : AppSizes.d16.w,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -139,11 +147,15 @@ class IntroTextBlock extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: AppSizes.d8.h),
+                  SizedBox(
+                    height: context.isDesktop ? AppSizes.d8.h : AppSizes.d4.h,
+                  ),
                   Text(
                     item['subtitle']!,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      fontSize: AppSizes.d18.sp,
+                      fontSize: context.isDesktop
+                          ? AppSizes.d18.sp
+                          : AppSizes.d12.sp,
                       color: AppColors.textSecondary,
                     ),
                   ),

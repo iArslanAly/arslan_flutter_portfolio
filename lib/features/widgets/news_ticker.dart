@@ -1,4 +1,5 @@
-import 'package:arslan_flutter_portfolio/core/constants/colors.dart';
+import '../../core/constants/colors.dart';
+import '../../core/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +17,7 @@ class _NewsTickerBannerState extends State<NewsTickerBanner>
   late final Ticker _ticker;
 
   double scrollPosition = 0.0;
-  double speed = 300.0;
+  double speed = 150.0;
 
   final List<String> messages = [
     "Flutter Developer",
@@ -32,7 +33,7 @@ class _NewsTickerBannerState extends State<NewsTickerBanner>
     "Open Source Contributor",
     "Agile Team Player",
     "Pixel-Perfect Design",
-    "Git & CI/CD Expert",
+    "Git & CI/CD",
     "REST & GraphQL APIs",
     "Flutter Web Ready",
     "Dark Mode Enthusiast",
@@ -90,7 +91,7 @@ class _NewsTickerBannerState extends State<NewsTickerBanner>
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 70.h,
+      height: context.isDesktop ? 70.h : 40.h,
       color: AppColors.primary,
       alignment: Alignment.centerLeft,
       child: ListView.builder(
@@ -102,17 +103,21 @@ class _NewsTickerBannerState extends State<NewsTickerBanner>
           final message = messages[index % messages.length];
           return Row(
             children: [
-              Icon(Icons.star, color: Colors.white, size: 16.w),
+              Icon(
+                Icons.star,
+                color: Colors.white,
+                size: context.isDesktop ? 16.w : 12.w,
+              ),
               SizedBox(width: 10.w),
               Text(
                 message,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w500,
+                  fontSize: context.isDesktop ? 16.sp : 12.sp,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(width: 30.w),
+              SizedBox(width: context.isDesktop ? 30.w : 12.w),
             ],
           );
         },

@@ -34,7 +34,9 @@ class _HoverIconButtonState extends State<HoverIconButton> {
         onTap: widget.onTap,
         child: AnimatedContainer(
           duration: Duration(milliseconds: 200),
-          padding: EdgeInsets.all(AppSizes.d12.w), // padding inside round bg
+          padding: EdgeInsets.all(
+            context.isDesktop ? AppSizes.d12.w : AppSizes.d8.w,
+          ), // padding inside round bg
           decoration: BoxDecoration(
             color: _isHovered ? AppColors.onSurface : Colors.transparent,
             shape: BoxShape.circle,
@@ -44,8 +46,8 @@ class _HoverIconButtonState extends State<HoverIconButton> {
             ),
           ),
           child: SizedBox(
-            width: 18.w,
-            height: 18.w,
+            width: context.isDesktop ? 18.w : 10.w,
+            height: context.isDesktop ? 18.w : 10.w,
             child: SvgPicture.asset(
               widget.assetPath,
               width: widget.size,

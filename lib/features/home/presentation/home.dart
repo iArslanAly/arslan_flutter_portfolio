@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/widgets/desktop_appbar.dart';
 import '../../widgets/homeSecctions/blogSection/blog_section.dart';
-import '../../widgets/homeSecctions/contecSection/contect_section.dart';
+import '../../widgets/homeSecctions/contactSection/contact_section.dart';
 import '../../widgets/homeSecctions/hero/hero.dart';
 import '../../widgets/homeSecctions/introduction/introduction.dart';
 import '../../widgets/homeSecctions/resumeSection/resume_section.dart';

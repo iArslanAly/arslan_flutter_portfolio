@@ -6,17 +6,24 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../constants/images.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CTA extends StatelessWidget {
   final VoidCallback onPressed;
   final String label;
   final bool isSelected;
 
+  /// ✅ New props for mobile expand/collapse
+  final bool showExpandIcon;
+  final bool isExpanded;
+
   const CTA({
     super.key,
     this.label = TextStrings.heroButton,
     required this.onPressed,
     this.isSelected = false,
+    this.showExpandIcon = false,
+    this.isExpanded = false,
   });
 
   @override
@@ -33,23 +40,34 @@ class CTA extends StatelessWidget {
           borderRadius: BorderRadius.circular(AppSizes.d4.r),
         ),
       ),
-
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          /// Label
           Text(
             label,
             style: Theme.of(context).textTheme.titleLarge!.copyWith(
               color: AppColors.surface,
-              fontSize: AppSizes.d15.sp,
+              fontSize: context.isDesktop ? AppSizes.d15.sp : AppSizes.d12.sp,
             ),
           ),
-          SizedBox(width: AppSizes.d8.w),
-          SvgPicture.asset(
-            AppImages.arrowUpRight,
-            colorFilter: ColorFilter.mode(AppColors.onPrimary, BlendMode.srcIn),
-            height: AppSizes.d24.h,
-          ),
+
+          /// Icon
+          if (showExpandIcon)
+            Icon(
+              isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+              color: AppColors.surface,
+              size: AppSizes.d24.h,
+            )
+          else
+            SvgPicture.asset(
+              AppImages.arrowUpRight,
+              colorFilter: ColorFilter.mode(
+                AppColors.onPrimary,
+                BlendMode.srcIn,
+              ),
+              height: AppSizes.d24.h,
+            ),
         ],
       ),
     );

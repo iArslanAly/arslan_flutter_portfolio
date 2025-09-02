@@ -10,22 +10,18 @@ class AppTextTheme {
       color: AppColors.textPrimary,
       fontSize: 84,
       fontWeight: FontWeight.w800,
-      letterSpacing: 0,
-      height: 63 / 84,
     ),
 
     displayMedium: GoogleFonts.outfit(
       color: AppColors.textPrimary,
       fontSize: 64,
       fontWeight: FontWeight.w700,
-      height: 63 / 60,
-      letterSpacing: 0,
     ),
     displaySmall: GoogleFonts.outfit(
       color: AppColors.textPrimary,
       fontSize: 48,
       fontWeight: FontWeight.w800,
-      height: 63 / 48,
+
       letterSpacing: -1.5,
     ),
     headlineLarge: GoogleFonts.outfit(
@@ -37,37 +33,28 @@ class AppTextTheme {
       color: AppColors.textPrimary,
       fontSize: 42,
       fontWeight: FontWeight.w600,
-      height: 64 / 42,
-      letterSpacing: 0,
     ),
     headlineSmall: GoogleFonts.outfit(
       color: AppColors.textPrimary,
       fontSize: 32,
       fontWeight: FontWeight.w600,
-      height: 48 / 32,
-      letterSpacing: 0,
     ),
     // Hero paragraph
     titleLarge: GoogleFonts.outfit(
       color: AppColors.textPrimary,
       fontSize: 24,
       fontWeight: FontWeight.w600,
-      height: 36 / 24,
-      letterSpacing: 0,
     ),
     // Subheading or medium label (26px)
     titleMedium: GoogleFonts.outfit(
       color: AppColors.textPrimary,
       fontSize: 26,
       fontWeight: FontWeight.w400,
-      height: 40 / 26,
-      letterSpacing: 0,
     ),
     titleSmall: GoogleFonts.outfit(
       fontSize: 18,
       fontWeight: FontWeight.w500,
-      height: 28 / 18,
-      letterSpacing: 0,
+
       textBaseline: TextBaseline.alphabetic,
       color: AppColors.textPrimary,
     ),
@@ -76,37 +63,29 @@ class AppTextTheme {
       color: AppColors.textSecondary,
       fontSize: 20,
       fontWeight: FontWeight.w400,
-      height: 28 / 18,
-      letterSpacing: 0,
     ),
     bodyMedium: GoogleFonts.outfit(
       color: AppColors.textSecondary,
       fontSize: 18,
       fontWeight: FontWeight.w400,
-      height: 28 / 18, // 1.56 approx
-      letterSpacing: 0,
     ),
 
     bodySmall: GoogleFonts.inter(
       fontSize: 16,
       fontWeight: FontWeight.w400,
-      height: 1.5, // 150%
-      letterSpacing: 0.13,
-      color: AppColors.textSecondary, // Or whatever color it uses
+
+      color: AppColors.textSecondary,
     ),
 
     labelLarge: GoogleFonts.outfit(
       color: AppColors.onPrimary,
       fontSize: 15,
       fontWeight: FontWeight.w600,
-      height: 16 / 15,
-      letterSpacing: 0,
     ),
     labelMedium: GoogleFonts.outfit(
       fontSize: 14,
       fontWeight: FontWeight.w500,
-      height: 20 / 14,
-      letterSpacing: 0,
+
       color: AppColors.textSecondary,
     ),
     labelSmall: GoogleFonts.outfit(
@@ -123,8 +102,6 @@ class AppTextTheme {
       color: AppColors.textPrimary,
       fontSize: 34,
       fontWeight: FontWeight.w800,
-      letterSpacing: 0,
-      height: 43 / 34,
     ),
 
     displayMedium: GoogleFonts.outfit(

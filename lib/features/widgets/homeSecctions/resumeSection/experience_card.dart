@@ -18,13 +18,14 @@ class ExperienceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = context.isDesktop;
     return HoverableWidget(
       builder: (isHovered) {
         return AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          width: AppSizes.d360.w,
-          height: AppSizes.d180.h,
-          padding: EdgeInsets.all(AppSizes.d24.w),
+          width: isDesktop ? AppSizes.d360.w : AppSizes.d155.w,
+          height: isDesktop ? AppSizes.d180.h : AppSizes.d125.h,
+          padding: EdgeInsets.all(isDesktop ? AppSizes.d24.w : AppSizes.d12.w),
           decoration: BoxDecoration(
             color: isHovered ? AppColors.primary : AppColors.surface,
             borderRadius: BorderRadius.circular(8.r),
@@ -37,7 +38,7 @@ class ExperienceCard extends StatelessWidget {
               Text(
                 duration,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  fontSize: AppSizes.d14.sp,
+                  fontSize: isDesktop ? AppSizes.d14.sp : AppSizes.d10.sp,
                   fontWeight: FontWeight.w500,
                   color: isHovered
                       ? AppColors.surface
@@ -61,11 +62,15 @@ class ExperienceCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(16.r),
                         ),
                       ),
-                      SizedBox(width: AppSizes.d8.w),
+                      SizedBox(
+                        width: isDesktop ? AppSizes.d8.w : AppSizes.d4.w,
+                      ),
                       Text(
                         company,
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          fontSize: AppSizes.d18.sp,
+                          fontSize: isDesktop
+                              ? AppSizes.d18.sp
+                              : AppSizes.d12.sp,
                           fontWeight: FontWeight.w500,
                           color: isHovered
                               ? AppColors.surface
@@ -79,7 +84,7 @@ class ExperienceCard extends StatelessWidget {
                   Text(
                     role,
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontSize: AppSizes.d24.sp,
+                      fontSize: isDesktop ? AppSizes.d24.sp : AppSizes.d14.sp,
                       fontWeight: FontWeight.bold,
                       color: isHovered
                           ? AppColors.surface

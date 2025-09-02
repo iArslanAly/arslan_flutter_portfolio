@@ -37,7 +37,8 @@ class ContactForm extends StatelessWidget {
                   Expanded(
                     child: _buildTextField(
                       "Name",
-                      state.name,                      cubit.updateName,
+                      state.name,
+                      cubit.updateName,
                       errorText: state.nameError,
                     ),
                   ),
@@ -83,18 +84,18 @@ class ContactForm extends StatelessWidget {
               ),
               SizedBox(height: 30.h),
               Align(
-                alignment: Alignment.center,
+                alignment: Alignment.bottomLeft,
                 child: SizedBox(
                   width: 180.w,
                   height: 50.h,
                   child: ElevatedButton(
+                    onPressed: state.isSubmitting ? null : cubit.submitForm,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
+                      backgroundColor: AppColors.primary,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.r),
+                        borderRadius: BorderRadius.circular(8.r),
                       ),
                     ),
-                    onPressed: state.isSubmitting ? null : cubit.submitForm,
                     child: state.isSubmitting
                         ? const CircularProgressIndicator(color: Colors.white)
                         : Text(

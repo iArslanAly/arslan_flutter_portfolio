@@ -20,11 +20,11 @@ class ServiceCardLarge extends StatelessWidget {
   Widget build(BuildContext context) {
     final isMobile = DeviceInfo.isMobile(context);
 
-    final double containerWidth = isMobile ? AppSizes.d270.w : AppSizes.d415.w;
+    final double containerWidth = isMobile ? double.infinity : AppSizes.d415.w;
     final double containerHeight = isMobile ? AppSizes.d200.h : AppSizes.d400.h;
     final double iconSize = isMobile ? AppSizes.d24.w : AppSizes.d48.w;
-    final double fontSize = isMobile ? AppSizes.d16.sp : AppSizes.d32.sp;
-    final double labelFontSize = isMobile ? AppSizes.d14.sp : AppSizes.d18.sp;
+    final double fontSize = isMobile ? AppSizes.d10.sp : AppSizes.d32.sp;
+    final double labelFontSize = isMobile ? AppSizes.d12.sp : AppSizes.d18.sp;
 
     return HoverableWidget(
       onTap: onTap,
@@ -33,10 +33,14 @@ class ServiceCardLarge extends StatelessWidget {
           duration: const Duration(milliseconds: 200),
           width: containerWidth,
           height: containerHeight,
-          padding: EdgeInsets.all(AppSizes.d24.w),
+          padding: EdgeInsets.all(
+            context.isDesktop ? AppSizes.d24.w : AppSizes.d16.w,
+          ),
           decoration: BoxDecoration(
             color: isHovered ? AppColors.primary : AppColors.onSurface,
-            borderRadius: BorderRadius.circular(AppSizes.d20.r),
+            borderRadius: BorderRadius.circular(
+              context.isDesktop ? AppSizes.d20.r : AppSizes.d12.r,
+            ),
           ),
           child: Stack(
             children: [
@@ -64,7 +68,6 @@ class ServiceCardLarge extends StatelessWidget {
                         fontSize: labelFontSize,
                         fontWeight: FontWeight.bold,
                         color: AppColors.surface,
-
                         height: 1.2,
                       ),
                     ),

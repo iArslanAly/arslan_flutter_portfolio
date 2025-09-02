@@ -1,3 +1,4 @@
+import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,30 +21,30 @@ class AboutMe extends StatelessWidget {
     ];
 
     return Padding(
-      padding: EdgeInsets.all(20.w),
+      padding: EdgeInsets.all(context.isDesktop ? 20.w : 12.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             TextStrings.aboutMeTitle,
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-              fontSize: 32.sp,
+              fontSize: context.isDesktop ? 32.sp : 16.sp,
               fontWeight: FontWeight.bold,
               color: AppColors.textPrimary,
             ),
           ),
-          SizedBox(height: 32.h),
+          SizedBox(height: context.isDesktop ? 32.h : 12.h),
           Text(
             TextStrings.aboutMeSubtitle,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              fontSize: 16.sp,
+              fontSize: context.isDesktop ? 16.sp : 12.sp,
               color: AppColors.textSecondary,
             ),
           ),
-          SizedBox(height: 32.h),
+          SizedBox(height: context.isDesktop ? 32.h : 12.h),
           ...aboutItems.map(
             (item) => Padding(
-              padding: EdgeInsets.only(bottom: 16.h),
+              padding: EdgeInsets.only(bottom: context.isDesktop ? 16.h : 8.h),
               child: AboutMeItem(label: item.key, value: item.value),
             ),
           ),
@@ -70,7 +71,7 @@ class AboutMeItem extends StatelessWidget {
           child: Text(
             label,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              fontSize: 18.sp,
+              fontSize: context.isDesktop ? 18.sp : 10.sp,
               color: AppColors.textSecondary,
             ),
           ),
@@ -79,7 +80,7 @@ class AboutMeItem extends StatelessWidget {
           child: Text(
             value,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              fontSize: 24.sp,
+              fontSize: context.isDesktop ? 24.sp : 12.sp,
               color: AppColors.textPrimary,
             ),
           ),

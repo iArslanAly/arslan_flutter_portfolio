@@ -1,7 +1,7 @@
 class TextStrings {
   static const String appName = "Flutter UI Kit";
 
-  static const String heroTitle1 = "Hello, I am";
+  static const String heroLabel = "Hello, I am";
   static const String heroTitle2 = "Arslan Ali";
   static const String heroTitle3 = "Flutter ";
   static const String heroTitle3Highlight = "Developer";
@@ -47,6 +47,7 @@ class TextStrings {
   static const String labelFreelance = "Freelance:";
   static const String freelance = "Available";
   static const String labelAddress = "Address:";
+  static const String address = "Lahore, Pakistan";
   static const String labelLanguages = "Languages:";
   static const String languages = "English, Urdu";
   static const String experienceTitle = "Experience";
@@ -95,4 +96,10 @@ class TextStrings {
   static const String blogTitle = "Latest Blogs ";
   static const String and = '& ';
   static const String blogTitleArticles = "Articles";
+
+  /// ------------ Contact Title -----------------
+  static const String contactLabel = "Contact";
+  static const String contactTitle = "Let's ";
+  static const String contactTitleHighlight = "Chat ";
+  static const String contactTitle2 = "& Make it Happen!";
 }

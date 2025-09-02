@@ -1,3 +1,14 @@
+import 'package:flutter/widgets.dart';
+
+extension ResponsiveExt on BuildContext {
+  double get screenWidth => MediaQuery.of(this).size.width;
+  double get screenHeight => MediaQuery.of(this).size.height;
+
+  bool get isMobile => screenWidth < 600;
+  bool get isTablet => screenWidth >= 600 && screenWidth < 800;
+  bool get isDesktop => screenWidth >= 800;
+}
+
 class AppSizes {
   // Padding and margin sizes
   static double xs = 4.0;
@@ -96,6 +107,7 @@ class AppSizes {
   static int i140 = 140;
   static int i145 = 145;
   static int i150 = 150;
+  static int i175 = 175;
   static int i200 = 200;
   static int i300 = 300;
   static int i400 = 400;
@@ -256,11 +268,14 @@ class AppSizes {
   static double d100 = 100.0;
   static double d110 = 110.0;
   static double d120 = 120.0;
+  static double d125 = 125.0;
   static double d130 = 130.0;
   static double d140 = 140.0;
   static double d150 = 150.0;
+  static double d155 = 155.0;
   static double d160 = 160.0;
   static double d170 = 170.0;
+  static double d175 = 175.0;
   static double d180 = 180.0;
   static double d190 = 190.0;
   static double d200 = 200.0;

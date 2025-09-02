@@ -20,33 +20,36 @@ class SkillCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = context.isDesktop;
     return HoverableWidget(
       builder: (isHovered) {
         return AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          width: AppSizes.d240.w,
-          height: AppSizes.d100.h,
+          width: isDesktop ? AppSizes.d240.w : AppSizes.d100.w,
+          height: isDesktop ? AppSizes.d100.h : AppSizes.d40.h,
           padding: EdgeInsets.symmetric(
-            vertical: AppSizes.d16.h,
-            horizontal: AppSizes.d20.w,
+            vertical: isDesktop ? AppSizes.d16.h : AppSizes.d8.h,
+            horizontal: isDesktop ? AppSizes.d20.w : AppSizes.d12.w,
           ),
           decoration: BoxDecoration(
             color: isHovered ? AppColors.primary : AppColors.surface,
-            borderRadius: BorderRadius.circular(AppSizes.d12.r),
+            borderRadius: BorderRadius.circular(
+              isDesktop ? AppSizes.d12.r : AppSizes.d8.r,
+            ),
           ),
           child: Row(
             children: [
               /// Skill Icon
               SvgPicture.asset(
                 iconPath,
-                width: AppSizes.d40.w,
-                height: AppSizes.d40.h,
+                width: isDesktop ? AppSizes.d40.w : AppSizes.d24.w,
+                height: isDesktop ? AppSizes.d40.h : AppSizes.d24.h,
                 colorFilter: ColorFilter.mode(
                   isHovered ? AppColors.surface : AppColors.primary,
                   BlendMode.srcIn,
                 ),
               ),
-              SizedBox(width: AppSizes.d24.w),
+              SizedBox(width: isDesktop ? AppSizes.d24.w : AppSizes.d12.w),
 
               /// Skill Name and Progress
               Expanded(
@@ -58,14 +61,18 @@ class SkillCard extends StatelessWidget {
                     Text(
                       skillName,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        fontSize: AppSizes.d20.sp,
-                        fontWeight: FontWeight.w600,
+                        fontSize: isDesktop ? AppSizes.d20.sp : AppSizes.d10.sp,
+                        fontWeight: isDesktop
+                            ? FontWeight.w600
+                            : FontWeight.w400,
                         color: isHovered
                             ? AppColors.surface
                             : AppColors.textPrimary,
                       ),
                     ),
-                    SizedBox(height: AppSizes.d12.h),
+                    SizedBox(
+                      height: isDesktop ? AppSizes.d12.h : AppSizes.d8.h,
+                    ),
 
                     /// Progress Bar
                     ClipRRect(

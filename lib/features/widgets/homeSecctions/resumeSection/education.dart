@@ -1,3 +1,4 @@
+import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
 import 'package:arslan_flutter_portfolio/core/constants/text_strings.dart';
 
 import 'package:flutter/material.dart';
@@ -10,17 +11,18 @@ class Education extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = context.isDesktop;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           TextStrings.educationTitle,
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-            fontSize: 32.sp,
+            fontSize: isDesktop ? 32.sp : 18.sp,
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 24.h),
+        SizedBox(height: isDesktop ? 24.h : 16.h),
         EducationCard(
           duration: TextStrings.educationDuration1,
           company: TextStrings.educationDegree1,
