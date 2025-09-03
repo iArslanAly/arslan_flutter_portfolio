@@ -24,7 +24,7 @@ class FooterLinks extends StatelessWidget {
   ];
 
   bool _isDesktop(BuildContext context) => context.isDesktop;
-
+//Saeed Akhtar Abbass 03064611546
   Widget _navItem(
     BuildContext context,
     String label, {
@@ -42,7 +42,10 @@ class FooterLinks extends StatelessWidget {
       builder: (isHovered) {
         return AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          padding: EdgeInsets.symmetric(horizontal: context.isDesktop ? 16.w : 8.w, vertical: context.isDesktop ? 12.h : 8.h),
+          padding: EdgeInsets.symmetric(
+            horizontal: context.isDesktop ? 16.w : 4.w,
+            vertical: context.isDesktop ? 12.h : 8.h,
+          ),
           child: Text(
             label,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -126,8 +129,8 @@ class FooterLinks extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(
         top: isDesktop ? 16.h : 24.h,
-        left: isDesktop ? 40.w : 16.w,
-        right: isDesktop ? 40.w : 16.w,
+        left: isDesktop ? 40.w : 12.w,
+        right: isDesktop ? 40.w : 12.w,
         bottom: isDesktop ? 16.h : 12.h,
       ),
       child: Column(

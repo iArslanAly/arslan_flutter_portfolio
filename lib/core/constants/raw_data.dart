@@ -29,32 +29,32 @@ final skills = [
 
 final List<TestimonialCard> testimonials = [
   TestimonialCard(
-    clientName: "Atif Khan",
-    role: "CTO, Tech Solutions",
+    clientName: "Atif Nadeem",
+    role: "UI/UX",
     feedback:
         "He combines creativity with technical expertise, building user-friendly applications that focus on performance and usability.",
   ),
   TestimonialCard(
     clientName: "Arsin Hove",
-    role: "CEO, Creative Studio",
+    role: "UI/UX",
     feedback:
         "Professional, consistent, and innovative — always delivers projects on time with high-quality results.",
   ),
   TestimonialCard(
-    clientName: "John Doe",
-    role: "Founder, Startup Inc.",
+    clientName: "Masaka",
+    role: "UI/UX",
     feedback:
         "An exceptional developer who always goes the extra mile to ensure client satisfaction.",
   ),
   TestimonialCard(
-    clientName: "Emma Wilson",
-    role: "Product Manager, AppWorks",
+    clientName: "Muhammad Tariq",
+    role: "Mobile App",
     feedback:
         "Very detail-oriented and proactive. His solutions improved our app performance by 40%.",
   ),
   TestimonialCard(
-    clientName: "Michael Lee",
-    role: "Director, CloudSoft",
+    clientName: "Rizwan Ali",
+    role: "Mobile App",
     feedback:
         "Reliable, trustworthy, and highly skilled. His work ethic and dedication set him apart from others.",
   ),

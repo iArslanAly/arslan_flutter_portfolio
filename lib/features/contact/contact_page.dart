@@ -17,7 +17,7 @@ class ContactPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = context.isDesktop;
     return Scaffold(
-      appBar: DesktopAppBar(onCTAPressed: () {}, onNavTogglePressed: () {}),
+      appBar: DesktopAppBar( onNavTogglePressed: () {}),
       body: Container(
         color: AppColors.background,
         child: SingleChildScrollView(

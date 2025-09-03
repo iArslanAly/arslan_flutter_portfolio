@@ -11,7 +11,8 @@ class HomeRepository {
 
   Future<void> openCv() async {
     // When hosted on Firebase, this will be served as a static file
-    const String cvPath = 'assets/files/Arslan_Ali_CV_Flutter.pdf';
+    const cvPath =
+        'https://firebasestorage.googleapis.com/v0/b/portfolio-c17b5.firebasestorage.app/o/cv%2FArslan_Ali_CV_Flutter%20Dev.pdf?alt=media&token=e4f11102-27cb-47f4-a319-2be05ce439e8';
 
     // In Firebase hosting, asset URLs are relative
     final Uri uri = Uri.parse(cvPath);

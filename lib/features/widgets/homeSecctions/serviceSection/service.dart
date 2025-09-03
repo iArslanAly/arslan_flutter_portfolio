@@ -117,7 +117,7 @@ class ServiceSection extends StatelessWidget {
 
                     // Large card
                     ServiceCardLarge(
-                      title: TextStrings.serviceTabSayHello,
+                      title: TextStrings.email,
 
                       onTap: () {
                         // Handle tap

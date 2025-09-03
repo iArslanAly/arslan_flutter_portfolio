@@ -8,7 +8,7 @@ class BlogsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DesktopAppBar(onCTAPressed: () {}, onNavTogglePressed: () {}),
+      appBar: DesktopAppBar( onNavTogglePressed: () {}),
       body: Center(child: Text('List of Blogs will be displayed here.')),
     );
   }

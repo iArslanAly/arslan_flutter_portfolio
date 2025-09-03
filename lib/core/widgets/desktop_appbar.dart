@@ -10,12 +10,12 @@ import 'cta.dart';
 import 'hoverable_widget.dart';
 
 class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final VoidCallback onCTAPressed;
+  
   final VoidCallback onNavTogglePressed;
 
   const DesktopAppBar({
     super.key,
-    required this.onCTAPressed,
+    
     required this.onNavTogglePressed,
   });
 
@@ -93,7 +93,7 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              CTA(onPressed: () {}),
+              CTA(onPressed: () => context.go(RouteNames.contact)),
               SizedBox(width: 12.w),
               IconButton(
                 icon: Icon(Icons.menu, size: 16.sp),
@@ -106,7 +106,7 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
                     borderRadius: BorderRadius.circular(AppSizes.d4.r),
                   ),
                 ),
-                onPressed: onNavTogglePressed,
+                onPressed: () {},
               ),
             ],
           ),

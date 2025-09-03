@@ -8,7 +8,7 @@ class PortfolioPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DesktopAppBar(onCTAPressed: () {}, onNavTogglePressed: () {}),
+      appBar: DesktopAppBar(onNavTogglePressed: () {}),
       body: Center(child: Text('Portfolio Page Content')),
     );
   }

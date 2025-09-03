@@ -19,7 +19,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DesktopAppBar(onCTAPressed: () {}, onNavTogglePressed: () {}),
+      appBar: DesktopAppBar( onNavTogglePressed: () {}),
       backgroundColor: AppColors.background,
       body: SingleChildScrollView(
         child: Column(

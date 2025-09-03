@@ -2,11 +2,13 @@ import 'package:arslan_flutter_portfolio/features/home/data/repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/colors.dart';
 import '../../../../core/constants/images.dart';
 import '../../../../core/constants/sizes.dart';
 import '../../../../core/constants/text_strings.dart';
+import '../../../../core/routes/route_names.dart';
 import '../../../../core/widgets/cta.dart';
 import '../../../../core/widgets/hoverable_widget.dart';
 
@@ -84,7 +86,7 @@ class IntroTextBlock extends StatelessWidget {
         /// CTA Buttons
         Row(
           children: [
-            CTA(onPressed: () {}),
+            CTA(onPressed: () => context.go(RouteNames.contact)),
             SizedBox(
               width: context.isDesktop ? AppSizes.d50.w : AppSizes.d16.w,
             ),
