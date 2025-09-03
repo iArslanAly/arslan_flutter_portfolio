@@ -1,3 +1,4 @@
+import 'package:arslan_flutter_portfolio/features/home/data/repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -88,7 +89,7 @@ class IntroTextBlock extends StatelessWidget {
               width: context.isDesktop ? AppSizes.d50.w : AppSizes.d16.w,
             ),
             HoverableWidget(
-              onTap: () {},
+              onTap: () => HomeRepository().openCv(),
               builder: (isHovered) => AnimatedContainer(
                 duration: const Duration(milliseconds: 200),
                 padding: const EdgeInsets.symmetric(

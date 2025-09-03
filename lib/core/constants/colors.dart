@@ -30,7 +30,12 @@ class AppColors {
   // ----------------------------
 
   /// General background (e.g. page background)
-  static const Color background = Color(0xFFFFFCF2); // Cream / off-white
+  static const Color background = Color.fromARGB(
+    255,
+    244,
+    250,
+    246,
+  ); // Cream / off-white
 
   /// Text/icons on top of background
   static const Color onBackground = Color(0xFF252422); // Dark brown/black

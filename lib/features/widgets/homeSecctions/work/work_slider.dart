@@ -2,15 +2,14 @@ import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:arslan_flutter_portfolio/core/constants/images.dart';
 
 import '../../../../core/constants/colors.dart';
+import '../../../../core/constants/images.dart';
 import '../../../../core/widgets/round_icon_button.dart';
 import '../../../home/domain/project_modal.dart';
 import 'card.dart';
 
 class WorkSlider extends StatefulWidget {
-  /// Optional callback when a project card is tapped.
   final void Function(Project)? onProjectTap;
 
   const WorkSlider({super.key, this.onProjectTap});
@@ -22,7 +21,6 @@ class WorkSlider extends StatefulWidget {
 class _WorkSliderRowState extends State<WorkSlider> {
   final ScrollController _scrollController = ScrollController();
 
-  // Provide projects (images should match your assets)
   final List<Project> projects = const [
     Project(imagePath: AppImages.work1, title: 'Project A', tech: 'Flutter'),
     Project(
@@ -38,13 +36,7 @@ class _WorkSliderRowState extends State<WorkSlider> {
     Project(imagePath: AppImages.work4, title: 'Project D', tech: 'Animations'),
   ];
 
-  // visual tuning
-  final double itemBaseWidth = 300.w;
-  final double itemSelectedWidth = 600.w;
-  final double itemHeight = 500.h;
-  final double horizontalSpacing = 16.w;
-
-  // runtime values (updated in build)
+  // runtime values
   double _screenCenter = 0;
   double _sidePadding = 0.0;
   double _slotWidth = 0.0;
@@ -52,25 +44,19 @@ class _WorkSliderRowState extends State<WorkSlider> {
 
   // state
   double _currentScroll = 0.0;
-  int currentIndex = 0; // which item is considered "centered"
-
-  // track which item is hovered (web/desktop)
+  int currentIndex = 0;
   int? _hoveredIndex;
 
-  // throttle to avoid excessive setState calls
   Timer? _throttleTimer;
 
   @override
   void initState() {
     super.initState();
-
-    // precache images once the widget is first laid out to reduce jank
     WidgetsBinding.instance.addPostFrameCallback((_) {
       for (final p in projects) {
         precacheImage(AssetImage(p.imagePath), context);
       }
     });
-
     _scrollController.addListener(_onScroll);
   }
 
@@ -84,32 +70,27 @@ class _WorkSliderRowState extends State<WorkSlider> {
 
   void _onScroll() {
     if (!mounted) return;
-
     _currentScroll = _scrollController.hasClients
         ? _scrollController.offset
         : 0.0;
 
-    // compute centered index if geometry already measured
     if (_slotWidth > 0) {
       final double scrollCenter = _currentScroll + _screenCenter;
       final int newIndex = ((scrollCenter - _sidePadding) / _slotWidth)
           .round()
           .clamp(0, projects.length - 1);
 
-      // update index immediately if changed (keeps buttons enabled/disabled accurate)
       if (newIndex != currentIndex) {
         setState(() => currentIndex = newIndex);
-        return; // we've already rebuilt — skip throttled paint
+        return;
       }
     }
 
-    // throttle rebuilds for smoothness (~60fps)
     if (_throttleTimer?.isActive ?? false) return;
     _throttleTimer = Timer(const Duration(milliseconds: 16), () {});
     setState(() {});
   }
 
-  /// Scroll so that [index] item is centered in the viewport.
   void _scrollToIndex(int index) {
     if (!_scrollController.hasClients) return;
 
@@ -129,10 +110,20 @@ class _WorkSliderRowState extends State<WorkSlider> {
 
   @override
   Widget build(BuildContext context) {
-    _screenCenter = (MediaQuery.of(context).size.width / 2) - 150.w;
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final bool isDesktop = screenWidth > 800;
+
+    // 🔹 Responsive dimensions (calculated ONCE per build)
+    final double itemBaseWidth = (isDesktop ? 300 : 120).w;
+    final double itemSelectedWidth = (isDesktop ? 600 : 200).w;
+    final double itemHeight = (isDesktop ? 500 : 200).h;
+    final double horizontalSpacing = (isDesktop ? 16 : 8).w;
+
+    // 🔹 Geometry setup
+    _screenCenter = (screenWidth / 2) - (itemBaseWidth / 2);
     _slotWidth = itemBaseWidth + horizontalSpacing;
     _sidePadding = _screenCenter - (itemBaseWidth / 2);
-    _influenceRadius = _slotWidth; // how far the scaling effect reaches
+    _influenceRadius = _slotWidth;
 
     return Column(
       children: [
@@ -149,22 +140,19 @@ class _WorkSliderRowState extends State<WorkSlider> {
               itemBuilder: (context, index) {
                 final project = projects[index];
 
-                // compute item center and how close it is to view center
+                // position math
                 final double itemOffset = _sidePadding + index * _slotWidth;
                 final double itemSlotCenter = itemOffset + itemBaseWidth / 2;
                 final double scrollCenter = _currentScroll + _screenCenter;
                 final double diff = (scrollCenter - itemSlotCenter).abs();
                 final double t = (diff / _influenceRadius).clamp(0.0, 1.0);
 
-                // interpolate width between selected and base
+                // 🔹 interpolated width
                 final double innerWidth =
                     lerpDouble(itemSelectedWidth, itemBaseWidth, t) ??
                     itemBaseWidth;
 
-                // consider the item centered when it is the computed currentIndex
                 final bool isCentered = index == currentIndex;
-
-                // hover grow (web/desktop)
                 final bool isHovered = index == _hoveredIndex;
                 final double hoverScale = isHovered ? 1.01 : 1.0;
 
@@ -197,8 +185,7 @@ class _WorkSliderRowState extends State<WorkSlider> {
                                         colorFilter: isCentered
                                             ? const ColorFilter.mode(
                                                 AppColors.surface,
-                                                BlendMode
-                                                    .modulate, // multiplies image with green
+                                                BlendMode.modulate,
                                               )
                                             : const ColorFilter.mode(
                                                 Colors.transparent,
@@ -210,8 +197,6 @@ class _WorkSliderRowState extends State<WorkSlider> {
                                           semanticLabel: project.title,
                                         ),
                                       ),
-
-                                      // subtle shadow overlay to mimic boxShadow while avoiding expensive decorations
                                       Positioned.fill(
                                         child: DecoratedBox(
                                           decoration: BoxDecoration(
@@ -231,8 +216,6 @@ class _WorkSliderRowState extends State<WorkSlider> {
                                 ),
                               ),
 
-                              // Card overlay shown only when the item is centered.
-                              // Uses AnimatedOpacity + Slide for a smooth entrance.
                               AnimatedProjectCard(
                                 title: project.title,
                                 tech: project.tech,
@@ -266,12 +249,11 @@ class _WorkSliderRowState extends State<WorkSlider> {
                     : null,
                 icon: Icons.arrow_back,
               ),
-              SizedBox(width: 24.w),
+              SizedBox(width: isDesktop ? 24.w : 12.w),
               RoundIconButton(
                 onPressed: currentIndex < projects.length - 1
                     ? () => _scrollToIndex(currentIndex + 1)
                     : null,
-
                 icon: Icons.arrow_forward,
               ),
             ],

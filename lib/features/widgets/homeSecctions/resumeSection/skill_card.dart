@@ -25,11 +25,11 @@ class SkillCard extends StatelessWidget {
       builder: (isHovered) {
         return AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          width: isDesktop ? AppSizes.d240.w : AppSizes.d100.w,
-          height: isDesktop ? AppSizes.d100.h : AppSizes.d40.h,
+          width: isDesktop ? AppSizes.d240.w : AppSizes.d70.w,
+          height: isDesktop ? AppSizes.d100.h : AppSizes.d50.h,
           padding: EdgeInsets.symmetric(
-            vertical: isDesktop ? AppSizes.d16.h : AppSizes.d8.h,
-            horizontal: isDesktop ? AppSizes.d20.w : AppSizes.d12.w,
+            vertical: isDesktop ? AppSizes.d16.h : AppSizes.d6.h,
+            horizontal: isDesktop ? AppSizes.d20.w : AppSizes.d10.w,
           ),
           decoration: BoxDecoration(
             color: isHovered ? AppColors.primary : AppColors.surface,
@@ -42,14 +42,14 @@ class SkillCard extends StatelessWidget {
               /// Skill Icon
               SvgPicture.asset(
                 iconPath,
-                width: isDesktop ? AppSizes.d40.w : AppSizes.d24.w,
-                height: isDesktop ? AppSizes.d40.h : AppSizes.d24.h,
+                width: isDesktop ? AppSizes.d40.w : AppSizes.d12.w,
+                height: isDesktop ? AppSizes.d40.h : AppSizes.d12.h,
                 colorFilter: ColorFilter.mode(
                   isHovered ? AppColors.surface : AppColors.primary,
                   BlendMode.srcIn,
                 ),
               ),
-              SizedBox(width: isDesktop ? AppSizes.d24.w : AppSizes.d12.w),
+              SizedBox(width: isDesktop ? AppSizes.d24.w : AppSizes.d8.w),
 
               /// Skill Name and Progress
               Expanded(

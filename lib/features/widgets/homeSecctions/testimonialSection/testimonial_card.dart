@@ -25,12 +25,13 @@ class TestimonialCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
+    final isDesktop = context.isDesktop;
 
     return HoverableWidget(
       builder: (isHovered) => Container(
-        width: 550.w,
-        height: 345.h,
-        padding: EdgeInsets.all(40.h),
+        width: isDesktop ? 550.w : 270.w,
+        height: isDesktop ? 345.h : 160.h,
+        padding: EdgeInsets.all(isDesktop ? 40.h : 16.h),
         decoration: BoxDecoration(
           color: isHovered ? AppColors.primary : AppColors.surface,
           borderRadius: BorderRadius.circular(8.r),
@@ -58,14 +59,14 @@ class TestimonialCard extends StatelessWidget {
                       radius: 30.r,
                       backgroundImage: AssetImage(imagePath),
                     ),
-                    SizedBox(width: 16.w),
+                    SizedBox(width: isDesktop ? 16.w : 8.w),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           clientName,
                           style: theme.titleMedium?.copyWith(
-                            fontSize: 18.sp,
+                            fontSize: isDesktop ? 18.sp : 12.sp,
                             fontWeight: FontWeight.bold,
                             color: isHovered
                                 ? AppColors.onPrimary
@@ -76,7 +77,7 @@ class TestimonialCard extends StatelessWidget {
                         Text(
                           role,
                           style: theme.bodyMedium?.copyWith(
-                            fontSize: 14.sp,
+                            fontSize: isDesktop ? 14.sp : 10.sp,
                             color: isHovered
                                 ? AppColors.onPrimary
                                 : AppColors.textSecondary,
@@ -96,7 +97,7 @@ class TestimonialCard extends StatelessWidget {
                       color: isHovered
                           ? AppColors.onPrimary
                           : AppColors.primary,
-                      size: AppSizes.d20.sp,
+                      size: isDesktop ? AppSizes.d20.sp : AppSizes.d10.sp,
                     ),
                   ),
                 ),
@@ -107,7 +108,7 @@ class TestimonialCard extends StatelessWidget {
             Text(
               feedback,
               style: theme.bodyLarge?.copyWith(
-                fontSize: 18.sp,
+                fontSize: isDesktop ? 18.sp : 10.sp,
                 color: isHovered ? AppColors.onPrimary : AppColors.textPrimary,
                 height: 1.5,
               ),
@@ -118,8 +119,8 @@ class TestimonialCard extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: SvgPicture.asset(
                 AppImages.quote,
-                width: 40.w,
-                height: 40.h,
+                width: isDesktop ? 40.w : 14.w,
+                height: isDesktop ? 40.h : 14.h,
                 colorFilter: ColorFilter.mode(
                   isHovered ? AppColors.onPrimary : AppColors.primary,
                   BlendMode.srcIn,

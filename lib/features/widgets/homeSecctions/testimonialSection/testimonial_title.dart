@@ -15,41 +15,42 @@ class TestimonialTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = context.isDesktop;
     return Container(
       padding: EdgeInsets.only(
-        top: 90.0.h,
-        left: 80.0.w,
-        right: 80.0.w,
-        bottom: 50.0.h,
+        top: isDesktop ? 90.0.h : 24.0.h,
+        left: isDesktop ? 80.0.w : 16.0.w,
+        right: isDesktop ? 80.0.w : 16.0.w,
+        bottom: isDesktop ? 50.0.h : 24.0.h,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          /// CTA Section (left)
           SizedBox(
-            width: AppSizes.d415.w,
+            width: isDesktop ? AppSizes.d415.w : AppSizes.d180.w,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   TextStrings.testimonialLabel.toUpperCase(),
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                    fontSize: AppSizes.d20.sp,
+                    fontSize: isDesktop ? AppSizes.d20.sp : AppSizes.d10.sp,
                     fontWeight: FontWeight.bold,
                     color: AppColors.primary,
                   ),
                 ),
-                SizedBox(height: AppSizes.d16.h),
+                SizedBox(height: isDesktop ? AppSizes.d16.h : AppSizes.d2.h),
                 Text(
                   TextStrings.testimonialTitle,
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontSize: AppSizes.d48.sp,
+                    fontSize: isDesktop ? AppSizes.d48.sp : AppSizes.d18.sp,
                     color: AppColors.textPrimary,
+                    fontWeight: FontWeight.bold,
                     height: 1,
                   ),
                 ),
-                SizedBox(height: AppSizes.d20.h),
+                SizedBox(height: isDesktop ? AppSizes.d20.h : AppSizes.d10.h),
               ],
             ),
           ),
@@ -59,7 +60,9 @@ class TestimonialTitle extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: bottomItemsData.map((item) {
               return Padding(
-                padding: EdgeInsets.only(right: AppSizes.d40.w),
+                padding: EdgeInsets.only(
+                  right: isDesktop ? AppSizes.d40.w : AppSizes.d12.w,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -67,7 +70,9 @@ class TestimonialTitle extends StatelessWidget {
                       item['title']!,
                       style: Theme.of(context).textTheme.headlineLarge
                           ?.copyWith(
-                            fontSize: AppSizes.d55.sp,
+                            fontSize: isDesktop
+                                ? AppSizes.d55.sp
+                                : AppSizes.d18.sp,
                             fontWeight: FontWeight.bold,
                           ),
                     ),
@@ -79,7 +84,9 @@ class TestimonialTitle extends StatelessWidget {
                               return Icon(
                                 Icons.star,
                                 color: AppColors.primary,
-                                size: AppSizes.d20.sp,
+                                size: isDesktop
+                                    ? AppSizes.d20.sp
+                                    : AppSizes.d10.sp,
                               );
                             }),
                           )
@@ -87,7 +94,9 @@ class TestimonialTitle extends StatelessWidget {
                             item['subtitle']!,
                             style: Theme.of(context).textTheme.bodyMedium
                                 ?.copyWith(
-                                  fontSize: AppSizes.d18.sp,
+                                  fontSize: isDesktop
+                                      ? AppSizes.d18.sp
+                                      : AppSizes.d12.sp,
                                   color: AppColors.textSecondary,
                                 ),
                           ),

@@ -1,3 +1,6 @@
+import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
+import 'package:arslan_flutter_portfolio/features/widgets/responsive.dart';
+
 import 'contact_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,20 +13,35 @@ class ContectSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = context.isDesktop;
     return Padding(
-      padding: EdgeInsets.all(80.h),
+      padding: EdgeInsets.symmetric(
+        vertical: isDesktop ? 80.h : 24.h,
+        horizontal: isDesktop ? 80.w : 16.w,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ContextTitle(),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(child: ContactForm()),
-              SizedBox(width: 60.w),
-              Expanded(child: ContactInfo()),
-            ],
+          Responsive(
+            desktop: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(child: ContactForm()),
+                SizedBox(width: 60.w),
+                Expanded(child: ContactInfo()),
+              ],
+            ),
+            mobile: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(child: ContactForm()),
+                SizedBox(height: 24.h),
+                Expanded(child: ContactInfo()),
+              ],
+            ),
           ),
         ],
       ),

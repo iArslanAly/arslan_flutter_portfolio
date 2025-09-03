@@ -10,12 +10,13 @@ class WorkTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = context.isDesktop;
     return Container(
       padding: EdgeInsets.only(
-        top: 90.0.h,
-        left: 80.0.w,
-        right: 80.0.w,
-        bottom: 50.0.h,
+        top: isDesktop ? 90.0.h : 24.0.h,
+        left: isDesktop ? 80.0.w : 16.0.w,
+        right: isDesktop ? 80.0.w : 16.0.w,
+        bottom: isDesktop ? 50.0.h : 24.0.h,
       ),
 
       child: Row(
@@ -24,23 +25,24 @@ class WorkTitle extends StatelessWidget {
         children: [
           /// CTA Section (left)
           SizedBox(
-            width: AppSizes.d415.w,
+            width: isDesktop ? AppSizes.d415.w : AppSizes.d220.w,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   TextStrings.workLabel.toUpperCase(),
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                    fontSize: AppSizes.d20.sp,
+                    fontSize: isDesktop ? AppSizes.d20.sp : AppSizes.d10.sp,
                     fontWeight: FontWeight.bold,
                     color: AppColors.primary,
                   ),
                 ),
-                SizedBox(height: AppSizes.d16.h),
+                SizedBox(height: isDesktop ? AppSizes.d16.h : AppSizes.d2.h),
                 Text(
                   TextStrings.workTitle,
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontSize: AppSizes.d48.sp,
+                    fontSize: isDesktop ? AppSizes.d48.sp : AppSizes.d18.sp,
+                    fontWeight: FontWeight.bold,
                     color: AppColors.textPrimary,
                     height: 1,
                   ),
@@ -48,12 +50,12 @@ class WorkTitle extends StatelessWidget {
                 Text(
                   TextStrings.workSubtitle,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontSize: AppSizes.d18.sp,
+                    fontSize: isDesktop ? AppSizes.d18.sp : AppSizes.d12.sp,
                     color: AppColors.textSecondary,
                     height: 1.5,
                   ),
                 ),
-                SizedBox(height: AppSizes.d20.h),
+                SizedBox(height: isDesktop ? AppSizes.d20.h : AppSizes.d8.h),
               ],
             ),
           ),

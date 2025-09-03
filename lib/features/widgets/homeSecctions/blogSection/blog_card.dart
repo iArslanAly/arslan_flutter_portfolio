@@ -1,3 +1,4 @@
+import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:arslan_flutter_portfolio/core/constants/colors.dart';
@@ -11,6 +12,7 @@ class BlogCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
+    final isDesktop = context.isDesktop;
 
     return HoverableWidget(
       onTap: () {
@@ -18,15 +20,17 @@ class BlogCard extends StatelessWidget {
         debugPrint("Clicked: ${blog['title']}");
       },
       builder: (isHovered) => Container(
-        width: 390.w,
-        height: 570.h,
+        width: isDesktop ? AppSizes.d390.w : AppSizes.d220.w,
+        height: isDesktop ? AppSizes.d570.h : AppSizes.d320.h,
         decoration: BoxDecoration(
           color: isHovered ? AppColors.primary : AppColors.surface,
-          borderRadius: BorderRadius.circular(8.r),
+          borderRadius: BorderRadius.circular(
+            isDesktop ? AppSizes.d8.r : AppSizes.d4.r,
+          ),
           boxShadow: [
             BoxShadow(
               color: AppColors.secondary.withValues(alpha: 0.1),
-              blurRadius: 6,
+              blurRadius: AppSizes.d6,
               offset: const Offset(0, 4),
             ),
           ],
@@ -36,13 +40,15 @@ class BlogCard extends StatelessWidget {
           children: [
             Image.asset(
               blog["images"]!,
-              width: 390.w,
-              height: 260.h,
+              width: isDesktop ? AppSizes.d390.w : AppSizes.d220.w,
+              height: isDesktop ? AppSizes.d260.h : AppSizes.d150.h,
               fit: BoxFit.cover,
             ),
 
             Padding(
-              padding: EdgeInsets.all(24.h),
+              padding: EdgeInsets.all(
+                isDesktop ? AppSizes.d24.h : AppSizes.d12.h,
+              ),
               child: Column(
                 children: [
                   Row(
@@ -50,19 +56,23 @@ class BlogCard extends StatelessWidget {
                     children: [
                       Container(
                         padding: EdgeInsets.symmetric(
-                          horizontal: 8.w,
-                          vertical: 4.h,
+                          horizontal: isDesktop ? AppSizes.d8.w : AppSizes.d4.w,
+                          vertical: isDesktop ? AppSizes.d4.h : AppSizes.d2.h,
                         ),
 
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.r),
+                          borderRadius: BorderRadius.circular(
+                            isDesktop ? AppSizes.d8.r : AppSizes.d4.r,
+                          ),
                           color: AppColors.secondary.withValues(alpha: 0.1),
                         ),
                         child: Text(
                           blog["category"]!,
                           style: theme.bodySmall?.copyWith(
                             fontWeight: FontWeight.w600,
-                            fontSize: 14.sp,
+                            fontSize: isDesktop
+                                ? AppSizes.d14.sp
+                                : AppSizes.d10.sp,
                             height: 1,
                             color: isHovered
                                 ? AppColors.onPrimary
@@ -70,11 +80,15 @@ class BlogCard extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(width: 8.w),
+                      SizedBox(
+                        width: isDesktop ? AppSizes.d8.w : AppSizes.d4.w,
+                      ),
                       Text(
                         blog["date"]!,
                         style: theme.bodySmall?.copyWith(
-                          fontSize: 14.sp,
+                          fontSize: isDesktop
+                              ? AppSizes.d14.sp
+                              : AppSizes.d10.sp,
                           height: 1,
                           fontWeight: FontWeight.w600,
                           color: isHovered
@@ -84,20 +98,20 @@ class BlogCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 12.h),
+                  SizedBox(height: isDesktop ? AppSizes.d12.h : AppSizes.d6.h),
 
                   /// --- Title
                   Text(
                     blog["title"]!,
                     style: theme.titleMedium?.copyWith(
-                      fontSize: 22.sp,
+                      fontSize: isDesktop ? AppSizes.d22.sp : AppSizes.d14.sp,
                       fontWeight: FontWeight.bold,
                       color: isHovered
                           ? AppColors.onPrimary
                           : AppColors.textPrimary,
                     ),
                   ),
-                  SizedBox(height: 12.h),
+                  SizedBox(height: isDesktop ? AppSizes.d12.h : AppSizes.d6.h),
 
                   /// --- Description
                   Text(
@@ -105,14 +119,14 @@ class BlogCard extends StatelessWidget {
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                     style: theme.bodyMedium?.copyWith(
-                      fontSize: 16.sp,
+                      fontSize: isDesktop ? AppSizes.d16.sp : AppSizes.d12.sp,
                       color: isHovered
                           ? AppColors.onPrimary.withValues(alpha: 0.9)
                           : AppColors.textSecondary,
                       height: 1,
                     ),
                   ),
-                  SizedBox(height: 24.h),
+                  SizedBox(height: isDesktop ? AppSizes.d24.h : AppSizes.d12.h),
 
                   /// --- Action
                   Align(
@@ -120,7 +134,7 @@ class BlogCard extends StatelessWidget {
                     child: Text(
                       blog["action"]!,
                       style: theme.labelLarge?.copyWith(
-                        fontSize: 16.sp,
+                        fontSize: isDesktop ? AppSizes.d16.sp : AppSizes.d12.sp,
                         fontWeight: FontWeight.w600,
                         color: isHovered
                             ? AppColors.onPrimary

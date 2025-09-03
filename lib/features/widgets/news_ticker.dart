@@ -17,7 +17,7 @@ class _NewsTickerBannerState extends State<NewsTickerBanner>
   late final Ticker _ticker;
 
   double scrollPosition = 0.0;
-  double speed = 150.0;
+  double speed = 100.0;
 
   final List<String> messages = [
     "Flutter Developer",

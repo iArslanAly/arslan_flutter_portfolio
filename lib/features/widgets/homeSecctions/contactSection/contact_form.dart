@@ -1,3 +1,4 @@
+import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,6 +12,7 @@ class ContactForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).textTheme;
+    final isDesktop = context.isDesktop;
 
     return BlocProvider(
       create: (_) => ContactFormCubit(),
@@ -40,20 +42,22 @@ class ContactForm extends StatelessWidget {
                       state.name,
                       cubit.updateName,
                       errorText: state.nameError,
+                      context,
                     ),
                   ),
-                  SizedBox(width: 20.w),
+                  SizedBox(width: isDesktop ? AppSizes.d20.w : AppSizes.d10.w),
                   Expanded(
                     child: _buildTextField(
                       "Your Email",
                       state.email,
                       cubit.updateEmail,
                       errorText: state.emailError,
+                      context,
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: isDesktop ? AppSizes.d20.h : AppSizes.d10.h),
               Row(
                 children: [
                   Expanded(
@@ -61,39 +65,44 @@ class ContactForm extends StatelessWidget {
                       "Phone Number",
                       state.phone,
                       cubit.updatePhone,
+                      context,
                     ),
                   ),
-                  SizedBox(width: 20.w),
+                  SizedBox(width: isDesktop ? AppSizes.d20.w : AppSizes.d10.w),
                   Expanded(
                     child: _buildTextField(
                       "Subject",
                       state.subject,
                       cubit.updateSubject,
                       errorText: state.subjectError,
+                      context,
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: isDesktop ? AppSizes.d20.h : AppSizes.d10.h),
               _buildTextField(
                 "Message",
                 state.message,
                 cubit.updateMessage,
                 maxLines: 5,
                 errorText: state.messageError,
+                context,
               ),
-              SizedBox(height: 30.h),
+              SizedBox(height: isDesktop ? AppSizes.d30.h : AppSizes.d15.h),
               Align(
                 alignment: Alignment.bottomLeft,
                 child: SizedBox(
-                  width: 180.w,
-                  height: 50.h,
+                  width: isDesktop ? AppSizes.d180.w : AppSizes.d90.w,
+                  height: isDesktop ? AppSizes.d50.h : AppSizes.d40.h,
                   child: ElevatedButton(
                     onPressed: state.isSubmitting ? null : cubit.submitForm,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.primary,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.r),
+                        borderRadius: BorderRadius.circular(
+                          isDesktop ? 8.r : 4.r,
+                        ),
                       ),
                     ),
                     child: state.isSubmitting
@@ -101,7 +110,9 @@ class ContactForm extends StatelessWidget {
                         : Text(
                             "Submit",
                             style: theme.labelLarge?.copyWith(
-                              fontSize: 16.sp,
+                              fontSize: isDesktop
+                                  ? AppSizes.d16.sp
+                                  : AppSizes.d12.sp,
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                             ),
@@ -119,15 +130,17 @@ class ContactForm extends StatelessWidget {
   Widget _buildTextField(
     String label,
     String value,
-    Function(String) onChanged, {
+    Function(String) onChanged,
+    BuildContext context, {
     int maxLines = 1,
     String? errorText,
   }) {
+    final isDesktop = context.isDesktop;
     return TextField(
       onChanged: onChanged,
       maxLines: maxLines,
       style: TextStyle(
-        fontSize: 16.sp, // 👈 user input text size
+        fontSize: isDesktop ? AppSizes.d16.sp : AppSizes.d12.sp,
         fontWeight: FontWeight.w400,
         color: AppColors.textSecondary,
       ),
@@ -136,23 +149,26 @@ class ContactForm extends StatelessWidget {
         errorText: errorText,
         labelStyle: TextStyle(
           // 👈 label size
-          fontSize: 14.sp,
+          fontSize: isDesktop ? AppSizes.d14.sp : AppSizes.d10.sp,
           fontWeight: FontWeight.w500,
           color: AppColors.textSecondary,
         ),
         hintStyle: TextStyle(
           // 👈 hint size
-          fontSize: 14.sp,
+          fontSize: isDesktop ? AppSizes.d14.sp : AppSizes.d10.sp,
           fontWeight: FontWeight.w400,
           color: AppColors.textSecondary.withValues(alpha: 0.6),
         ),
         errorStyle: TextStyle(
           // 👈 error size
-          fontSize: 12.sp,
+          fontSize: isDesktop ? AppSizes.d12.sp : AppSizes.d10.sp,
           color: Colors.red,
         ),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r)),
-        contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: isDesktop ? AppSizes.d16.w : AppSizes.d12.w,
+          vertical: AppSizes.d12.h,
+        ),
       ),
     );
   }

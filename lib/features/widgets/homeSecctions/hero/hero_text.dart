@@ -1,3 +1,4 @@
+import 'package:arslan_flutter_portfolio/features/home/data/repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -97,7 +98,7 @@ class HeroText extends StatelessWidget {
             ),
             HoverableWidget(
               onTap: () {
-                // download CV action
+                HomeRepository().openCv();
               },
               builder: (isHovered) {
                 return AnimatedContainer(
@@ -173,7 +174,9 @@ class HeroText extends StatelessWidget {
                 HoverIconButton(
                   assetPath: AppImages.facebook,
                   size: context.isDesktop ? AppSizes.d34.w : AppSizes.d10.w,
-                  onTap: () {},
+                  onTap: () => HomeRepository().launchAppUrl(
+                    'https://www.facebook.com/iarslanaly',
+                  ),
                 ),
                 SizedBox(
                   width: context.isDesktop ? AppSizes.d16.w : AppSizes.d8.w,
@@ -181,7 +184,9 @@ class HeroText extends StatelessWidget {
                 HoverIconButton(
                   assetPath: AppImages.twitter,
                   size: context.isDesktop ? AppSizes.d48.w : AppSizes.d10.w,
-                  onTap: () {},
+                  onTap: () => HomeRepository().launchAppUrl(
+                    'https://www.twitter.com/iarslanaly',
+                  ),
                 ),
                 SizedBox(
                   width: context.isDesktop ? AppSizes.d16.w : AppSizes.d8.w,
@@ -189,7 +194,9 @@ class HeroText extends StatelessWidget {
                 HoverIconButton(
                   assetPath: AppImages.linkedin,
                   size: context.isDesktop ? AppSizes.d24.w : AppSizes.d10.w,
-                  onTap: () {},
+                  onTap: () => HomeRepository().launchAppUrl(
+                    'https://www.linkedin.com/in/iarslanaly',
+                  ),
                 ),
                 SizedBox(
                   width: context.isDesktop ? AppSizes.d16.w : AppSizes.d8.w,
@@ -197,7 +204,9 @@ class HeroText extends StatelessWidget {
                 HoverIconButton(
                   assetPath: AppImages.github,
                   size: context.isDesktop ? AppSizes.d24.w : AppSizes.d10.w,
-                  onTap: () {},
+                  onTap: () => HomeRepository().launchAppUrl(
+                    'https://www.github.com/iarslanaly',
+                  ),
                 ),
               ],
             ),

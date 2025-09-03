@@ -1,8 +1,10 @@
+import 'package:arslan_flutter_portfolio/core/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/widgets/desktop_appbar.dart';
 import '../../widgets/homeSecctions/blogSection/blog_section.dart';
 import '../../widgets/homeSecctions/contactSection/contact_section.dart';
+import '../../widgets/homeSecctions/footer/footer.dart';
 import '../../widgets/homeSecctions/hero/hero.dart';
 import '../../widgets/homeSecctions/introduction/introduction.dart';
 import '../../widgets/homeSecctions/resumeSection/resume_section.dart';
@@ -18,6 +20,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DesktopAppBar(onCTAPressed: () {}, onNavTogglePressed: () {}),
+      backgroundColor: AppColors.background,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -30,6 +33,7 @@ class Home extends StatelessWidget {
             TestimonialSection(),
             BlogSection(),
             ContectSection(),
+            FooterSection(),
           ],
         ),
       ),

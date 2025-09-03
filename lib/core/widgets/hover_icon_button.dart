@@ -8,10 +8,14 @@ class HoverIconButton extends StatefulWidget {
   final String assetPath;
   final double size;
   final VoidCallback? onTap;
+  final Color hoverColor;
+  final Color normalColor;
 
   const HoverIconButton({
     required this.assetPath,
     required this.size,
+    this.hoverColor = AppColors.onBackground,
+    this.normalColor = AppColors.onBackground,
     this.onTap,
     super.key,
   });
@@ -38,10 +42,10 @@ class _HoverIconButtonState extends State<HoverIconButton> {
             context.isDesktop ? AppSizes.d12.w : AppSizes.d8.w,
           ), // padding inside round bg
           decoration: BoxDecoration(
-            color: _isHovered ? AppColors.onSurface : Colors.transparent,
+            color: _isHovered ? widget.hoverColor : Colors.transparent,
             shape: BoxShape.circle,
             border: Border.all(
-              color: _isHovered ? AppColors.primary : AppColors.onSurface,
+              color: _isHovered ? widget.hoverColor : widget.normalColor,
               width: 2,
             ),
           ),
@@ -52,7 +56,7 @@ class _HoverIconButtonState extends State<HoverIconButton> {
               widget.assetPath,
               width: widget.size,
               colorFilter: ColorFilter.mode(
-                _isHovered ? tabHoverText : AppColors.onBackground,
+                _isHovered ? tabHoverText : widget.normalColor,
                 BlendMode.srcIn,
               ),
             ),

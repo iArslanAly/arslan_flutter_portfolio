@@ -112,56 +112,55 @@ class ResumeSection extends StatelessWidget {
 
   /// ✅ Mobile layout: Accordion (expand/collapse)
   Widget _buildMobileLayout(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          _buildHeader(context),
-          SizedBox(height: 24.h),
-          BlocBuilder<ResumeTabCubit, int?>(
-            builder: (context, selectedIndex) {
-              return Column(
-                children: List.generate(tabs.length, (index) {
-                  final isExpanded = index == selectedIndex;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildHeader(context),
+        SizedBox(height: 24.h),
+        BlocBuilder<ResumeTabCubit, int?>(
+          builder: (context, selectedIndex) {
+            return Column(
+              children: List.generate(tabs.length, (index) {
+                final isExpanded = index == selectedIndex;
 
-                  return Padding(
-                    padding: EdgeInsets.only(
-                      bottom: 16.h,
-                    ), // 👈 space between buttons
-                    child: Column(
-                      children: [
-                        CTA(
-                          label: tabs[index],
-                          showExpandIcon: true,
-                          isExpanded: isExpanded,
-                          onPressed: () => context
-                              .read<ResumeTabCubit>()
-                              .selectTab(index, isDesktop: false),
-                          isSelected: isExpanded,
-                        ),
-                        AnimatedSize(
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeInOut,
-                          child: isExpanded
-                              ? Container(
-                                  width: double.infinity,
-                                  margin: EdgeInsets.only(top: 12.h),
-                                  padding: EdgeInsets.all(16.w),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12.r),
-                                  ),
-                                  child: _buildTabContent(index),
-                                )
-                              : const SizedBox.shrink(),
-                        ),
-                      ],
-                    ),
-                  );
-                }),
-              );
-            },
-          ),
-        ],
-      ),
+                return Padding(
+                  padding: EdgeInsets.only(
+                    bottom: 16.h,
+                  ), // 👈 space between buttons
+                  child: Column(
+                    children: [
+                      CTA(
+                        label: tabs[index],
+                        showExpandIcon: true,
+                        isExpanded: isExpanded,
+                        onPressed: () => context
+                            .read<ResumeTabCubit>()
+                            .selectTab(index, isDesktop: false),
+                        isSelected: isExpanded,
+                      ),
+                      AnimatedSize(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                        child: isExpanded
+                            ? Container(
+                                width: double.infinity,
+                                margin: EdgeInsets.only(top: 12.h),
+                                padding: EdgeInsets.all(16.w),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12.r),
+                                ),
+                                child: _buildTabContent(index),
+                              )
+                            : const SizedBox.shrink(),
+                      ),
+                    ],
+                  ),
+                );
+              }),
+            );
+          },
+        ),
+      ],
     );
   }
 

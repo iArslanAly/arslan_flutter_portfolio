@@ -1,3 +1,4 @@
+import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/constants/colors.dart';
@@ -18,20 +19,26 @@ class ContactInfoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = context.isDesktop;
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           children: [
             Container(
-              height: 56.h,
-              width: 56.w,
+              height: isDesktop ? AppSizes.d56.h : AppSizes.d34.h,
+              width: isDesktop ? AppSizes.d56.w : AppSizes.d34.w,
               decoration: BoxDecoration(
                 color: AppColors.secondary,
                 borderRadius: BorderRadius.circular(12.r),
               ),
-              child: Icon(icon, color: AppColors.surface, size: 28.sp),
+              child: Icon(
+                icon,
+                color: AppColors.surface,
+                size: isDesktop ? AppSizes.d28.sp : AppSizes.d20.sp,
+              ),
             ),
-            SizedBox(width: 16.w),
+            SizedBox(width: isDesktop ? AppSizes.d16.w : AppSizes.d8.w),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -39,7 +46,7 @@ class ContactInfoItem extends StatelessWidget {
                   label,
                   style: TextStyle(
                     color: AppColors.textSecondary,
-                    fontSize: 16.sp,
+                    fontSize: isDesktop ? AppSizes.d16.sp : AppSizes.d12.sp,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -48,8 +55,9 @@ class ContactInfoItem extends StatelessWidget {
                   value,
                   style: TextStyle(
                     color: AppColors.textPrimary,
-                    fontSize: 20.sp,
+                    fontSize: isDesktop ? AppSizes.d20.sp : AppSizes.d14.sp,
                     fontWeight: FontWeight.w600,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ],
@@ -57,14 +65,14 @@ class ContactInfoItem extends StatelessWidget {
           ],
         ),
         if (showDivider) ...[
-          SizedBox(height: 12.h),
+          SizedBox(height: isDesktop ? AppSizes.d12.h : AppSizes.d4.h),
           SizedBox(
-            width: 420.w,
+            width: isDesktop ? AppSizes.d420.w : AppSizes.d220.w,
             child: Divider(
               color: AppColors.textSecondary.withValues(alpha: 0.6),
             ),
           ),
-          SizedBox(height: 12.h),
+          SizedBox(height: isDesktop ? AppSizes.d12.h : AppSizes.d8.h),
         ],
       ],
     );

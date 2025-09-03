@@ -93,11 +93,7 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              CTA(
-                onPressed: () {
-                  // Your button logic (e.g. open contact form)
-                },
-              ),
+              CTA(onPressed: () {}),
               SizedBox(width: 12.w),
               IconButton(
                 icon: Icon(Icons.menu, size: 16.sp),

@@ -1,3 +1,5 @@
+import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
+
 import '../../../../core/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,6 +11,7 @@ class ContextTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = context.isDesktop;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -17,13 +20,13 @@ class ContextTitle extends StatelessWidget {
           style: Theme.of(context).textTheme.labelMedium?.copyWith(
             fontWeight: FontWeight.bold,
             color: AppColors.primary,
-            fontSize: 20.sp,
+            fontSize: isDesktop ? AppSizes.d20.sp : AppSizes.d10.sp,
           ),
         ),
         RichText(
           text: TextSpan(
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-              fontSize: 48.sp,
+              fontSize: isDesktop ? AppSizes.d48.sp : AppSizes.d18.sp,
               fontWeight: FontWeight.w600,
             ),
             children: [
@@ -44,7 +47,7 @@ class ContextTitle extends StatelessWidget {
           ),
         ),
 
-        SizedBox(height: 40.h),
+        SizedBox(height: isDesktop ? AppSizes.d40.h : AppSizes.d20.h),
       ],
     );
   }

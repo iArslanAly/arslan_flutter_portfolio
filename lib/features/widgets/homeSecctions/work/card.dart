@@ -1,3 +1,4 @@
+import 'package:arslan_flutter_portfolio/core/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,6 +22,7 @@ class AnimatedProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = context.isDesktop;
     return Positioned(
       bottom: bottom.h,
       left: left.w,
@@ -39,15 +41,17 @@ class AnimatedProjectCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(8.r),
               color: Theme.of(context).cardColor,
               child: SizedBox(
-                width: 240.w,
-                height: 112.h,
+                width: isDesktop ? 240.w : 120.w,
+                height: isDesktop ? 112.h : 55.h,
                 child: Row(
                   children: [
                     /// 70% Text Area
                     Expanded(
                       flex: 7,
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.w),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: isDesktop ? 16.w : 8.w,
+                        ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,16 +60,17 @@ class AnimatedProjectCard extends StatelessWidget {
                               title,
                               style: Theme.of(context).textTheme.titleLarge
                                   ?.copyWith(
-                                    fontSize: 24.sp,
+                                    fontSize: isDesktop ? 24.sp : 12.sp,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
                             SizedBox(height: 4.h),
                             Text(
                               tech,
-                              style: Theme.of(
-                                context,
-                              ).textTheme.bodyMedium?.copyWith(fontSize: 16.sp),
+                              style: Theme.of(context).textTheme.bodyMedium
+                                  ?.copyWith(
+                                    fontSize: isDesktop ? 16.sp : 10.sp,
+                                  ),
                             ),
                           ],
                         ),
@@ -80,14 +85,14 @@ class AnimatedProjectCard extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: Theme.of(context).primaryColor,
                           borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(8.r),
-                            bottomRight: Radius.circular(8.r),
+                            topRight: Radius.circular(isDesktop ? 8.r : 4.r),
+                            bottomRight: Radius.circular(isDesktop ? 8.r : 4.r),
                           ),
                         ),
                         child: Center(
                           child: Container(
-                            height: 44.h,
-                            width: 44.h,
+                            height: isDesktop ? 44.h : 24.h,
+                            width: isDesktop ? 44.h : 24.h,
                             decoration: BoxDecoration(
                               color: Theme.of(
                                 context,
@@ -96,7 +101,7 @@ class AnimatedProjectCard extends StatelessWidget {
                             ),
                             child: Icon(
                               Icons.arrow_forward,
-                              size: 24.h,
+                              size: isDesktop ? 24.h : 14.h,
                               color: Colors.white,
                             ),
                           ),

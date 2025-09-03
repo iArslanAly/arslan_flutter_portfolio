@@ -40,7 +40,10 @@ class RoundIconButton extends StatelessWidget {
             }),
           ),
       onPressed: onPressed,
-      icon: Icon(icon, size: AppSizes.d32.h),
+      icon: Icon(
+        icon,
+        size: context.isDesktop ? AppSizes.d32.h : AppSizes.d24.h,
+      ),
     );
   }
 }
