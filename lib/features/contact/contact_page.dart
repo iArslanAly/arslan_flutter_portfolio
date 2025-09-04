@@ -3,7 +3,9 @@ import 'package:arslan_flutter_portfolio/features/widgets/homeSecctions/footer/f
 import 'package:arslan_flutter_portfolio/features/widgets/responsive.dart';
 
 import '../../core/constants/colors.dart';
+import '../../core/widgets/app_drawer.dart';
 import '../../core/widgets/desktop_appbar.dart';
+import '../../core/widgets/mobile_appbar.dart';
 import '../widgets/homeSecctions/contactSection/contact_form.dart';
 import '../widgets/homeSecctions/contactSection/contact_info.dart';
 import '../widgets/homeSecctions/contactSection/contact_title.dart';
@@ -17,7 +19,10 @@ class ContactPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDesktop = context.isDesktop;
     return Scaffold(
-      appBar: DesktopAppBar( onNavTogglePressed: () {}),
+      appBar: isDesktop
+          ? DesktopAppBar(onNavTogglePressed: () {})
+          : MobileAppBar(),
+      endDrawer: isDesktop ? null : const MobileDrawer(),
       body: Container(
         color: AppColors.background,
         child: SingleChildScrollView(

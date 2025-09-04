@@ -69,7 +69,7 @@ class AnimatedProjectCard extends StatelessWidget {
                               tech,
                               style: Theme.of(context).textTheme.bodyMedium
                                   ?.copyWith(
-                                    fontSize: isDesktop ? 16.sp : 10.sp,
+                                    fontSize: isDesktop ? 14.sp : 8.sp,
                                   ),
                             ),
                           ],

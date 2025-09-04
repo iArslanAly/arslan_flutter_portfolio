@@ -19,7 +19,7 @@ class TextStrings {
   static const String serviceTabWeb = "Web Development";
   static const String serviceTabUiUx = "UI/UX Design";
   static const String serviceTabFlutterFlow = "Flutter Flow";
-  static const String serviceTabAppOptimization = "App Store Optimization";
+  static const String serviceTabAppOptimization = "App Optimization";
   static const String serviceTabAppStore = "App Store Optimization";
   static const String serviceTabSayHello = "Say Hello!";
   static const String introductionLabel = "Helo, I'm";

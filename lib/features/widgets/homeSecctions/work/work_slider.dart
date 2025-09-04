@@ -22,18 +22,16 @@ class _WorkSliderRowState extends State<WorkSlider> {
   final ScrollController _scrollController = ScrollController();
 
   final List<Project> projects = const [
-    Project(imagePath: AppImages.work1, title: 'Project A', tech: 'Flutter'),
+    Project(
+      imagePath: AppImages.work1,
+      title: 'CINEX',
+      tech: 'Flutter, Firebase, RestApi, NodeJS',
+    ),
     Project(
       imagePath: AppImages.work2,
-      title: 'Project B',
-      tech: 'Dart, Firebase',
+      title: 'TrueSight',
+      tech: 'Dart, Firebase, RestApi',
     ),
-    Project(
-      imagePath: AppImages.work3,
-      title: 'Project C',
-      tech: 'Flutter Web',
-    ),
-    Project(imagePath: AppImages.work4, title: 'Project D', tech: 'Animations'),
   ];
 
   // runtime values
@@ -183,8 +181,10 @@ class _WorkSliderRowState extends State<WorkSlider> {
                                     children: [
                                       ColorFiltered(
                                         colorFilter: isCentered
-                                            ? const ColorFilter.mode(
-                                                AppColors.surface,
+                                            ? ColorFilter.mode(
+                                                AppColors.surface.withValues(
+                                                  alpha: 0.5,
+                                                ),
                                                 BlendMode.modulate,
                                               )
                                             : const ColorFilter.mode(

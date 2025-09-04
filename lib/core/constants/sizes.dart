@@ -291,6 +291,7 @@ class AppSizes {
   static double d288 = 288.0;
   static double d290 = 290.0;
   static double d300 = 300.0;
+  static double d310 = 310.0;
   static double d320 = 320.0;
   static double d330 = 330.0;
   static double d340 = 340.0;

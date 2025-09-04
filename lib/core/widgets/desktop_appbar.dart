@@ -10,14 +10,9 @@ import 'cta.dart';
 import 'hoverable_widget.dart';
 
 class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
-  
   final VoidCallback onNavTogglePressed;
 
-  const DesktopAppBar({
-    super.key,
-    
-    required this.onNavTogglePressed,
-  });
+  const DesktopAppBar({super.key, required this.onNavTogglePressed});
 
   @override
   Size get preferredSize => Size.fromHeight(70.h);

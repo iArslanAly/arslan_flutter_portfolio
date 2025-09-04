@@ -7,12 +7,18 @@ import '../../features/contact/contact_page.dart';
 import '../../features/home/presentation/home.dart';
 import '../../features/notFound/not_found.dart';
 import '../../features/portfolio/portfolio.dart';
+import '../../features/services/services.dart';
 import 'route_names.dart';
 
 final GoRouter appRouter = GoRouter(
   initialLocation: RouteNames.home,
   routes: <GoRoute>[
     smoothFadeRoute(path: RouteNames.home, name: 'home', child: const Home()),
+    smoothFadeRoute(
+      path: RouteNames.services,
+      name: 'services',
+      child: const ServicePage(),
+    ),
     smoothFadeRoute(
       path: RouteNames.about,
       name: 'about',

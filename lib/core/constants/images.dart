@@ -9,8 +9,8 @@ class AppImages {
   static const String client = 'assets/images/client.png';
 
   /// ----------------------- Work Images -----------------------
-  static const String work1 = 'assets/images/portfolio1.png';
-  static const String work2 = 'assets/images/portfolio2.png';
+  static const String work1 = 'assets/images/image_cinex.png';
+  static const String work2 = 'assets/images/image_true_sight.png';
   static const String work3 = 'assets/images/portfolio3.png';
   static const String work4 = 'assets/images/portfolio4.png';
 
