@@ -8,8 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'contact_info.dart';
 import 'contact_form.dart';
 
-class ContectSection extends StatelessWidget {
-  const ContectSection({super.key});
+class ContactSection extends StatelessWidget {
+  const ContactSection({super.key});
 
   @override
   Widget build(BuildContext context) {

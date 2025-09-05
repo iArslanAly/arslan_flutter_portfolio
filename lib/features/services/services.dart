@@ -8,6 +8,7 @@ import '../../../core/constants/sizes.dart';
 import '../../../core/constants/colors.dart';
 import '../../core/widgets/app_drawer.dart';
 import '../../core/widgets/mobile_appbar.dart';
+import '../../core/widgets/page_header.dart';
 import '../widgets/homeSecctions/footer/footer.dart';
 import '../widgets/homeSecctions/testimonialSection/testimonial.dart';
 import '../widgets/services/service_page_card.dart';
@@ -78,49 +79,10 @@ class ServicePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // Title + Subtitle (centered)
-                    ConstrainedBox(
-                      constraints: BoxConstraints(
-                        maxWidth: context.isDesktop ? 800.w : 350.w,
-                      ),
-                      child: Column(
-                        children: [
-                          Text(
-                            TextStrings.servicesLabel.toUpperCase(),
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.labelMedium
-                                ?.copyWith(
-                                  fontSize: context.isDesktop
-                                      ? AppSizes.d20.sp
-                                      : AppSizes.d12.sp,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.primary,
-                                ),
-                          ),
-                          SizedBox(height: AppSizes.d12.h),
-                          Text(
-                            TextStrings.servicesTitle,
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.headlineLarge
-                                ?.copyWith(
-                                  fontSize: context.isDesktop
-                                      ? AppSizes.d48.sp
-                                      : AppSizes.d22.sp,
-                                  color: AppColors.textPrimary,
-                                ),
-                          ),
-                          SizedBox(height: AppSizes.d12.h),
-                          Text(
-                            TextStrings.servicesSubtitle,
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.bodyLarge
-                                ?.copyWith(
-                                  fontSize: AppSizes.d16.sp,
-                                  color: AppColors.textSecondary,
-                                  height: 1.5,
-                                ),
-                          ),
-                        ],
-                      ),
+                    PageHeader(
+                      label: TextStrings.servicesLabel,
+                      title: TextStrings.servicesTitle,
+                      subtitle: TextStrings.servicesSubtitle,
                     ),
                     SizedBox(
                       height: context.isDesktop

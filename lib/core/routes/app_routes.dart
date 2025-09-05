@@ -6,7 +6,8 @@ import '../../features/blogs/blogs.dart';
 import '../../features/contact/contact_page.dart';
 import '../../features/home/presentation/home.dart';
 import '../../features/notFound/not_found.dart';
-import '../../features/portfolio/portfolio.dart';
+import '../../features/portfolio/presentation/screens/portfolio.dart';
+import '../../features/portfolio/presentation/screens/project_details_page.dart';
 import '../../features/services/services.dart';
 import 'route_names.dart';
 
@@ -36,6 +37,12 @@ final GoRouter appRouter = GoRouter(
       name: 'contact',
       child: const ContactPage(),
     ),
+    smoothFadeRoute(
+  path: '${RouteNames.portfolio}/:id',
+  name: 'projectDetail',
+  child: const ProjectDetailPage( ), // we'll create this
+),
+
   ],
   errorBuilder: (context, state) {
     return const NotFoundPage();

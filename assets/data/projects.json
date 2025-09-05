@@ -1,0 +1,143 @@
+[
+  {
+  "id": "cinex_app",
+  "title": "Cinex",
+  "category": "Mobile Application",
+  "role": "Flutter Developer",
+  "client": "Personal Project",
+  "status": "Completed",
+  "duration": "2 months",
+  "post_date": "2023-09-05",
+  "start_date": "2023-07-01",
+  "end_date": "2023-08-30",
+  "tools": ["Flutter", "Firebase", "Hive", "SharedPreferences", "TMDB API"],
+  "tags": ["Flutter", "Firebase", "Movie App", "Portfolio", "Mobile UI"],
+  "design_link": "https://www.figma.com/file/your-figma-link",
+  "api_link": "https://specifications.techswivel.com/flutter-task-11/",
+  "links": {
+    "github": "https://github.com/yourusername/movie-explorer",
+    "demo_video": "https://youtu.be/demo-link",
+    "playstore": "https://play.google.com/store/apps/details?id=movieexplorer"
+  },
+  "poster": "https://firebasestorage.googleapis.com/v0/b/portfolio-c17b5.firebasestorage.app/o/images%2Fprojects%2Fposter_cinex.png?alt=media&token=5e147e5e-33c5-4f0d-8295-2aef706fd565",
+  "thumbnail": "https://firebasestorage.googleapis.com/v0/b/portfolio-c17b5.firebasestorage.app/o/images%2Fprojects%2Fimage_cinex.png?alt=media&token=40f480b7-8941-4f6c-be5e-cf2bdc2e320e",
+  "overview": "Movie Explorer is a Flutter-based mobile application that allows users to browse and explore popular movies powered by the TMDB API. The app provides a smooth browsing experience, detailed movie pages, and personalized features like managing favorites, all wrapped with Firebase authentication. It demonstrates modern Flutter development, API integration, and real-world use of local and cloud storage.",
+  "features": [
+    "Firebase Authentication with Email/Password and Google Sign-In",
+    "Engaging Splash Screen and Onboarding Flow",
+    "Home Screen displaying popular movies with pull-to-refresh and pagination",
+    "Movie Detail Screen showing posters, synopsis, tagline, release date, and cast",
+    "Favorites management with local (Hive/SharedPreferences) and cloud (Firebase) storage",
+    "Similar Movies section for recommendations",
+    "Search movies by title with instant results",
+    "Browse movies by genres/categories",
+    "Responsive UI optimized for mobile devices"
+  ],
+  "challenges": [
+    "Implementing smooth pagination with API calls",
+    "Syncing favorites between offline local database and Firebase",
+    "Managing state efficiently across multiple screens",
+    "Designing a responsive layout that adapts to different devices"
+  ],
+  "solutions": [
+    "Used proper API handling with lazy loading and caching for pagination",
+    "Built a sync mechanism to check connectivity and update Firebase/local DB accordingly",
+    "Applied state management techniques for better performance",
+    "Followed responsive design guidelines with adaptive layouts and flexible grids"
+  ],
+  
+  "conclusion": "The Movie Explorer app successfully demonstrates how to integrate multiple technologies—Flutter, Firebase, and REST APIs—into a seamless user experience. It not only helped solidify knowledge of authentication and state management but also showcased best practices in UI design and offline-first architecture. This project stands as a complete portfolio piece representing both technical and design skills in building real-world apps.",
+  "related_projects": [
+    {
+      "id": "truesight_ai_detection",
+      "title": "TrueSight",
+       "thumbnail": "https://firebasestorage.googleapis.com/v0/b/portfolio-c17b5.firebasestorage.app/o/images%2Fprojects%2Fimage_true_sight.png?alt=media&token=635fe930-7ddd-4915-89b9-7adf778972e5",
+      "category": "Mobile Application"
+    },
+    {
+      "id": "fintech_dashboard",
+      "title": "Mendero Fintech Dashboard",
+      "poster": "assets/images/projects/fintech/poster.png",
+      "category": "UI/UX Design"
+    },
+    {
+      "id": "qr_scanner_app",
+      "title": "Smart QR Code Scanner",
+      "poster": "assets/images/projects/qr_scanner/poster.png",
+      "category": "Utility App"
+    }
+  ]
+},
+
+ {
+  "id": "truesight_ai_detection",
+  "title": "TrueSight",
+  "category": "Mobile Application",
+  "role": "Flutter Developer",
+  "client": "Personal Project",
+  "status": "Completed",
+  "duration": "2.5 months",
+  "post_date": "2023-12-15",
+  "start_date": "2023-10-01",
+  "end_date": "2023-12-20",
+  "tools": ["Flutter", "Firebase", "Reality Defender API", "Clean Architecture", "REST API"],
+  "tags": ["AI Detection", "Deepfake Detection", "Mobile App", "Flutter", "Clean Architecture"],
+  "design_link": "https://www.figma.com/file/your-truesight-design",
+  "api_link": "https://docs.realitydefender.com/",
+  "links": {
+    "github": "https://github.com/yourusername/truesight-app",
+    "demo_video": "https://youtu.be/demo-link-truesight",
+    "playstore": "https://play.google.com/store/apps/details?id=truesight"
+  },
+  "poster": "https://firebasestorage.googleapis.com/v0/b/portfolio-c17b5.firebasestorage.app/o/images%2Fprojects%2Fposter_true_sight.png?alt=media&token=4d3ce942-f311-4173-834c-9d7f879f7307",
+  "thumbnail": "https://firebasestorage.googleapis.com/v0/b/portfolio-c17b5.firebasestorage.app/o/images%2Fprojects%2Fimage_true_sight.png?alt=media&token=635fe930-7ddd-4915-89b9-7adf778972e5",
+  "overview": "TrueSight is an AI-powered mobile application that verifies whether videos, images, or audio files are AI-generated or original. It leverages Reality Defender’s API for highly accurate detection and follows the Clean Architecture approach for maintainable, scalable Flutter development. The app provides real-time results with a confidence score, making it a reliable tool in the fight against deepfakes and synthetic media.",
+  "features": [
+    "Upload or capture images, videos, and audio for analysis",
+    "Detection powered by Reality Defender API with confidence scoring",
+    "Firebase Authentication with Google and Email/Password login",
+    "History screen to view past scans and results",
+    "Dark & Light mode support",
+    "Push notifications when a scan is completed",
+    "Offline mode for accessing previous scan history",
+    "Implemented using Clean Architecture with presentation, domain, and data layers",
+    "Multi-language support for global reach"
+  ],
+  "challenges": [
+    "Integrating Reality Defender API with multiple media types (image, video, audio)",
+    "Handling large media files efficiently without blocking UI",
+    "Designing Clean Architecture layers for better scalability",
+    "Ensuring data privacy and secure API usage"
+  ],
+  "solutions": [
+    "Used multipart/form-data requests for uploading large files to the API",
+    "Implemented background isolates for processing heavy tasks",
+    "Applied Clean Architecture with clear separation of concerns (presentation, domain, data)",
+    "Secured API keys and enforced Firebase security rules for data protection"
+  ],
+  "conclusion": "TrueSight App demonstrates how Flutter can be combined with powerful APIs like Reality Defender to solve real-world problems such as AI-generated content detection. By following Clean Architecture, the app remains scalable, maintainable, and easy to extend. This project highlights expertise in Flutter, REST API integration, Clean Architecture, and secure data handling, making it a strong showcase of technical problem-solving and modern app development.",
+  "related_projects": [
+    {
+      "id": "cinex_app",
+      "title": "Cinex",
+        "thumbnail": "https://firebasestorage.googleapis.com/v0/b/portfolio-c17b5.firebasestorage.app/o/images%2Fprojects%2Fimage_cinex.png?alt=media&token=40f480b7-8941-4f6c-be5e-cf2bdc2e320e",
+      "category": "Mobile Application"
+    },
+    {
+      "id": "fintech_dashboard",
+      "title": "Mendero Fintech Dashboard",
+      "thumbnail": "assets/images/projects/fintech/thumbnail.png",
+      "category": "UI/UX Design"
+    },
+    {
+      "id": "qr_scanner_app",
+      "title": "Smart QR Code Scanner",
+      "thumbnail": "assets/images/projects/qr_scanner/thumbnail.png",
+      "category": "Utility App"
+    }
+  ]
+}
+
+
+
+]

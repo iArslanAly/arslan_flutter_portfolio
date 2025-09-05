@@ -15,27 +15,32 @@ class MobileAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 2.w,
       toolbarHeight: 56.h,
       titleSpacing: 16.w,
-      title: Text(
-        'Ali.',
-        style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-          color: AppColors.textPrimary,
-          fontWeight: FontWeight.w700,
-          fontSize: 18.sp,
+      leading: Padding(
+        padding: EdgeInsets.only(left: 12.w),
+        child: Text(
+          'Ali.',
+          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+            color: AppColors.textPrimary,
+            fontWeight: FontWeight.w700,
+            fontSize: 18.sp,
+          ),
         ),
       ),
       actions: [
         Builder(
           builder: (context) {
-            return IconButton(
-              style: IconButton.styleFrom(
-                backgroundColor: AppColors.secondary,
-                padding: EdgeInsets.all(8.w),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(2.r),
+            return Padding(
+              padding: EdgeInsets.only(left: 12.w),
+              child: IconButton(
+                style: IconButton.styleFrom(
+                  backgroundColor: AppColors.secondary,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(2.r),
+                  ),
                 ),
+                icon: Icon(Icons.menu, size: 18.sp, color: AppColors.surface),
+                onPressed: () => Scaffold.of(context).openEndDrawer(),
               ),
-              icon: Icon(Icons.menu, size: 18.sp, color: AppColors.surface),
-              onPressed: () => Scaffold.of(context).openEndDrawer(),
             );
           },
         ),

@@ -39,7 +39,7 @@ class Home extends StatelessWidget {
             WorkSection(),
             TestimonialSection(),
             BlogSection(),
-            ContectSection(),
+            ContactSection(),
             FooterSection(),
           ],
         ),
