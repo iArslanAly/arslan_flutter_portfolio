@@ -53,19 +53,8 @@
       "title": "TrueSight",
        "thumbnail": "https://firebasestorage.googleapis.com/v0/b/portfolio-c17b5.firebasestorage.app/o/images%2Fprojects%2Fimage_true_sight.png?alt=media&token=635fe930-7ddd-4915-89b9-7adf778972e5",
       "category": "Mobile Application"
-    },
-    {
-      "id": "fintech_dashboard",
-      "title": "Mendero Fintech Dashboard",
-      "poster": "assets/images/projects/fintech/poster.png",
-      "category": "UI/UX Design"
-    },
-    {
-      "id": "qr_scanner_app",
-      "title": "Smart QR Code Scanner",
-      "poster": "assets/images/projects/qr_scanner/poster.png",
-      "category": "Utility App"
     }
+    
   ]
 },
 
@@ -122,19 +111,8 @@
       "title": "Cinex",
         "thumbnail": "https://firebasestorage.googleapis.com/v0/b/portfolio-c17b5.firebasestorage.app/o/images%2Fprojects%2Fimage_cinex.png?alt=media&token=40f480b7-8941-4f6c-be5e-cf2bdc2e320e",
       "category": "Mobile Application"
-    },
-    {
-      "id": "fintech_dashboard",
-      "title": "Mendero Fintech Dashboard",
-      "thumbnail": "assets/images/projects/fintech/thumbnail.png",
-      "category": "UI/UX Design"
-    },
-    {
-      "id": "qr_scanner_app",
-      "title": "Smart QR Code Scanner",
-      "thumbnail": "assets/images/projects/qr_scanner/thumbnail.png",
-      "category": "Utility App"
     }
+    
   ]
 }
 
