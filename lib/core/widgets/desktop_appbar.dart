@@ -21,9 +21,10 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.white,
+      automaticallyImplyLeading: false,
       elevation: 2.w,
       titleSpacing: 20.w,
-      toolbarHeight: 70.h, // Add this line!
+      toolbarHeight: 70.h, 
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -75,12 +76,12 @@ class DesktopAppBar extends StatelessWidget implements PreferredSizeWidget {
                 route: RouteNames.portfolio,
                 onTap: () => context.go(RouteNames.portfolio),
               ),
-              _navItem(
-                context,
-                'BLOGS',
-                route: RouteNames.blogs,
-                onTap: () => context.go(RouteNames.blogs),
-              ),
+              // _navItem(
+              //   context,
+              //   'BLOGS',
+              //   route: RouteNames.blogs,
+              //   onTap: () => context.go(RouteNames.blogs),
+              // ),
             ],
           ),
 

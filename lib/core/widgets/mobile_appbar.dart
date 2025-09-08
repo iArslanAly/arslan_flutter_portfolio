@@ -12,6 +12,7 @@ class MobileAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: AppColors.background,
+      automaticallyImplyLeading: false,
       elevation: 2.w,
       toolbarHeight: 56.h,
       titleSpacing: 16.w,

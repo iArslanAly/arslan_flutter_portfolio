@@ -20,11 +20,11 @@ class FooterLinks extends StatelessWidget {
     {'label': 'CONTACT', 'route': RouteNames.contact},
     {'label': 'ABOUT', 'route': RouteNames.about},
     {'label': 'PORTFOLIO', 'route': RouteNames.portfolio},
-    {'label': 'BLOGS', 'route': RouteNames.blogs},
+    // {'label': 'BLOGS', 'route': RouteNames.blogs},
   ];
 
   bool _isDesktop(BuildContext context) => context.isDesktop;
-//Saeed Akhtar Abbass 03064611546
+  //Saeed Akhtar Abbass 03064611546
   Widget _navItem(
     BuildContext context,
     String label, {
